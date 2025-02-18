@@ -1,16 +1,15 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+FROM node:latest
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy package files and install dependencies
-COPY package*.json ./
-COPY . .
-
+COPY package*.json .
 RUN npm install
 
 # Copy the rest of the application source code
+COPY . .
 
 # Expose port 9999 to the outside world
 EXPOSE 9999

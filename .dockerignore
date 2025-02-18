@@ -1,1 +1,7 @@
 node_modules
+.idea
+.dockerignore
+.gitignore
+.git
+__project_struct.json
+Dockerfile
