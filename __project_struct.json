@@ -1,0 +1,61 @@
+{
+  "files": [
+    ".gitignore",
+    "app.js",
+    "package-lock.json",
+    "package.json"
+  ],
+  "directories": {
+    ".idea": {
+      "files": [
+        ".gitignore",
+        "misc.xml",
+        "modules.xml",
+        "sample-app.iml",
+        "vcs.xml",
+        "workspace.xml"
+      ],
+      "directories": {}
+    },
+    "bin": {
+      "files": [
+        "www"
+      ],
+      "directories": {}
+    },
+    "public": {
+      "files": [],
+      "directories": {
+        "javascripts": {
+          "files": [
+            "pingpong.js"
+          ],
+          "directories": {}
+        },
+        "stylesheets": {
+          "files": [
+            "pingpong.css",
+            "style.css"
+          ],
+          "directories": {}
+        }
+      }
+    },
+    "routes": {
+      "files": [
+        "index.js",
+        "users.js"
+      ],
+      "directories": {}
+    },
+    "views": {
+      "files": [
+        "error.jade",
+        "index.jade",
+        "layout.jade",
+        "pingpong.jade"
+      ],
+      "directories": {}
+    }
+  }
+}
