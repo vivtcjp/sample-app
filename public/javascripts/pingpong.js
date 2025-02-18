@@ -47,7 +47,7 @@ function drawBall(x, y, size, color) {
 }
 
 function draw() {
-  drawRect(0, 0, canvas.width, canvas.height, '#000');
+  drawRect(0, 0, canvas.width, canvas.height, bgColor.value || '#000');
   drawRect(player.x, player.y, player.width, player.height, '#fff');
   drawRect(ai.x, ai.y, ai.width, ai.height, '#fff');
   drawBall(ball.x, ball.y, ball.width, '#fff');
@@ -141,5 +141,8 @@ setInterval(() => {
   ball.dx *= 1.1;
   ball.dy *= 1.1;
 }, 60000);
+
+// Change background color
+const bgColor = document.getElementById('bgColor');
 
 loop();

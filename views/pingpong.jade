@@ -6,4 +6,7 @@ html
   body
     h1 Ping Pong Game
     canvas#gameCanvas(width='800', height='400')
+    div
+      label(for='bgColor') Choose Background Color:
+      input(type='color', id='bgColor', name='bgColor')
     script(src='/javascripts/pingpong.js')
