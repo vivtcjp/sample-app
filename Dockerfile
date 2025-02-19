@@ -11,11 +11,11 @@ RUN npm install
 # Copy the rest of the application source code
 COPY . .
 
-# Expose port 9999 to the outside world
-EXPOSE 9999
+# Expose port 5454 to the outside world
+EXPOSE 5454
 
 # Define environment variable for the port (optional)
-ENV PORT=9999
+ENV PORT=5454
 
 # Run the application
 CMD ["npm", "start"]
