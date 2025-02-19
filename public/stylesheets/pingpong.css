@@ -1,5 +1,6 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -9,4 +10,29 @@ body {
 
 canvas {
   border: 1px solid #fff;
+}
+
+#startScreen, #gameOverScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+#gameControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#gameControls label {
+  margin-right: 10px;
+  color: #fff;
+}
+
+#gameControls input, #gameControls select {
+  margin-right: 20px;
 }

@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 
 let playerScore = 0;
 let aiScore = 0;
+let startTime = Date.now();
 
 const paddleWidth = 10;
 const paddleHeight = 100;
@@ -33,6 +34,35 @@ const ball = {
   dy: 2
 };
 
+const hitSound = new Audio('sounds/hit.mp3');
+const scoreSound = new Audio('sounds/score.mp3');
+
+let difficulty = 'normal';
+let playerColor = '#fff';
+let aiColor = '#fff';
+let ballColor = '#fff';
+let isPaused = false;
+
+function setDifficulty(level) {
+  switch (level) {
+    case 'easy':
+      ball.dx = 2;
+      ball.dy = 2;
+      ai.dy = 1.5;
+      break;
+    case 'normal':
+      ball.dx = 3;
+      ball.dy = 3;
+      ai.dy = 2;
+      break;
+    case 'hard':
+      ball.dx = 4;
+      ball.dy = 4;
+      ai.dy = 2.5;
+      break;
+  }
+}
+
 function drawRect(x, y, width, height, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x, y, width, height);
@@ -47,12 +77,14 @@ function drawBall(x, y, size, color) {
 }
 
 function draw() {
-  drawRect(0, 0, canvas.width, canvas.height, bgColor.value || '#000');
-  drawRect(player.x, player.y, player.width, player.height, '#fff');
-  drawRect(ai.x, ai.y, ai.width, ai.height, '#fff');
-  drawBall(ball.x, ball.y, ball.width, '#fff');
+  drawRect(0, 0, canvas.width, canvas.height, bgColor?.value || '#000');
+  drawRect(player.x, player.y, player.width, player.height, playerColor);
+  drawRect(ai.x, ai.y, ai.width, ai.height, aiColor);
+  drawBall(ball.x, ball.y, ball.width, ballColor);
   drawText(playerScore, canvas.width / 4, 50);
   drawText(aiScore, 3 * canvas.width / 4, 50);
+  drawText(`Level: ${difficulty}`, canvas.width / 2, 50);
+  drawText(`Time: ${Math.floor((Date.now() - startTime) / 1000)}s`, canvas.width / 2, 100);
 }
 
 function drawText(text, x, y) {
@@ -62,6 +94,8 @@ function drawText(text, x, y) {
 }
 
 function update() {
+  if (isPaused) return;
+
   player.y += player.dy;
   ai.y += ai.dy;
 
@@ -78,20 +112,26 @@ function update() {
 
   if (ball.x < 0) {
     aiScore++;
+    scoreSound.play();
     resetBall();
+    checkGameOver();
   }
 
   if (ball.x + ball.width > canvas.width) {
     playerScore++;
+    scoreSound.play();
     resetBall();
+    checkGameOver();
   }
 
   if (ball.x < player.x + player.width && ball.y + ball.height > player.y && ball.y < player.y + player.height) {
     ball.dx *= -1;
+    hitSound.play();
   }
 
   if (ball.x + ball.width > ai.x && ball.y + ball.height > ai.y && ball.y < ai.y + ai.height) {
     ball.dx *= -1;
+    hitSound.play();
   }
 }
 
@@ -99,6 +139,15 @@ function resetBall() {
   ball.x = canvas.width / 2 - ballSize / 2;
   ball.y = canvas.height / 2 - ballSize / 2;
   ball.dx *= -1;
+}
+
+function checkGameOver() {
+  if (playerScore >= 10 || aiScore >= 10) {
+    document.getElementById('gameCanvas').style.display = 'none';
+    document.getElementById('gameControls').style.display = 'none';
+    document.getElementById('gameOverScreen').style.display = 'block';
+    document.getElementById('winner').innerText = playerScore >= 10 ? 'Player' : 'AI';
+  }
 }
 
 function loop() {
@@ -136,6 +185,12 @@ document.addEventListener('mousemove', (event) => {
   player.y = mouseY - paddleHeight / 2;
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === ' ') {
+    isPaused = !isPaused;
+  }
+});
+
 // Increase ball speed every minute
 setInterval(() => {
   ball.dx *= 1.1;
@@ -144,5 +199,43 @@ setInterval(() => {
 
 // Change background color
 const bgColor = document.getElementById('bgColor');
+bgColor.addEventListener('input', (event) => {
+  draw();
+});
 
-loop();
+// Change player paddle color
+const playerColorInput = document.getElementById('playerColor');
+playerColorInput.addEventListener('input', (event) => {
+  playerColor = event.target.value;
+  draw();
+});
+
+// Change AI paddle color
+const aiColorInput = document.getElementById('aiColor');
+aiColorInput.addEventListener('input', (event) => {
+  aiColor = event.target.value;
+  draw();
+});
+
+// Change ball color
+const ballColorInput = document.getElementById('ballColor');
+ballColorInput.addEventListener('input', (event) => {
+  ballColor = event.target.value;
+  draw();
+});
+
+// Set difficulty level
+const difficultySelect = document.getElementById('difficulty');
+difficultySelect.addEventListener('change', (event) => {
+  difficulty = event.target.value;
+  setDifficulty(difficulty);
+});
+
+// Start game
+const startButton = document.getElementById('startButton');
+startButton.addEventListener('click', () => {
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('gameCanvas').style.display = 'block';
+  document.getElementById('gameControls').style.display = 'flex';
+  loop();
+});
