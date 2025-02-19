@@ -36,3 +36,19 @@ canvas {
 #gameControls input, #gameControls select {
   margin-right: 20px;
 }
+
+.quirky-title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 3em;
+  color: #ff69b4;
+  text-shadow: 2px 2px #000;
+  animation: quirky-animation 2s infinite;
+}
+
+@keyframes quirky-animation {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-3deg); }
+  100% { transform: rotate(0deg); }
+}
