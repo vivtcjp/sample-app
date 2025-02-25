@@ -142,11 +142,11 @@ function resetBall() {
 }
 
 function checkGameOver() {
-  if (playerScore >= 10 || aiScore >= 10) {
+  if (playerScore >= 5 || aiScore >= 5) {
     document.getElementById('gameCanvas').style.display = 'none';
     document.getElementById('gameControls').style.display = 'none';
     document.getElementById('gameOverScreen').style.display = 'block';
-    document.getElementById('winner').innerText = playerScore >= 10 ? 'Player' : 'AI';
+    document.getElementById('winner').innerText = playerScore >= 5 ? 'Player' : 'AI';
   }
 }
 
