@@ -19,7 +19,11 @@
       "directories": {}
     },
     "models": {
-      "files": [],
+      "files": [
+        "booking.js",
+        "bus.js",
+        "user.js"
+      ],
       "directories": {}
     },
     "public": {
@@ -43,6 +47,8 @@
     },
     "routes": {
       "files": [
+        "booking.js",
+        "bus.js",
         "index.js",
         "users.js"
       ],
@@ -50,6 +56,8 @@
     },
     "views": {
       "files": [
+        "booking.jade",
+        "bus.jade",
         "error.jade",
         "index.jade",
         "layout.jade"

@@ -28,4 +28,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Route to handle autonomous booking
+router.post('/autonomous', async (req, res) => {
+  const booking = new Booking({
+    user: req.body.user,
+    bus: req.body.bus,
+    status: 'confirmed'
+  });
+  try {
+    const newBooking = await booking.save();
+    res.status(201).json(newBooking);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 module.exports = router;

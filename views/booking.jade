@@ -6,3 +6,9 @@ block content
   form(action='/booking/:id', method='get')
     input(type='text', name='bookingId', placeholder='Enter Booking ID')
     button(type='submit') View Booking
+
+  h1 Create a new booking
+  form(action='/booking/autonomous', method='post')
+    input(type='text', name='user', placeholder='Enter User ID')
+    input(type='text', name='bus', placeholder='Enter Bus ID')
+    button(type='submit') Create Booking
