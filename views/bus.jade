@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Search available buses and book tickets here.
+  form(action='/bus/search', method='get')
+    button(type='submit') Search Buses
+  form(action='/bus/book', method='post')
+    input(type='text', name='busId', placeholder='Enter Bus ID')
+    button(type='submit') Book Ticket

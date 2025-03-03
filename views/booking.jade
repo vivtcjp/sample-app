@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p View your booking details here.
+  form(action='/booking/:id', method='get')
+    input(type='text', name='bookingId', placeholder='Enter Booking ID')
+    button(type='submit') View Booking

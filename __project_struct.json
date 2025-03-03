@@ -1,0 +1,60 @@
+{
+  "files": [
+    ".gitignore",
+    "app.js",
+    "package.json"
+  ],
+  "directories": {
+    ".idea": {
+      "files": [
+        "vcs.xml",
+        "workspace.xml"
+      ],
+      "directories": {}
+    },
+    "bin": {
+      "files": [
+        "www"
+      ],
+      "directories": {}
+    },
+    "models": {
+      "files": [],
+      "directories": {}
+    },
+    "public": {
+      "files": [],
+      "directories": {
+        "images": {
+          "files": [],
+          "directories": {}
+        },
+        "javascripts": {
+          "files": [],
+          "directories": {}
+        },
+        "stylesheets": {
+          "files": [
+            "style.css"
+          ],
+          "directories": {}
+        }
+      }
+    },
+    "routes": {
+      "files": [
+        "index.js",
+        "users.js"
+      ],
+      "directories": {}
+    },
+    "views": {
+      "files": [
+        "error.jade",
+        "index.jade",
+        "layout.jade"
+      ],
+      "directories": {}
+    }
+  }
+}
