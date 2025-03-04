@@ -1,8 +1,28 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Bus Booking App
   p Welcome to autonomous bus booking
-  a(href='/booking') View Bookings
-  a(href='/bus') View Buses
+
+  .container
+    .section
+      h2 Book a Bus
+      form(action='/booking', method='post')
+        label(for='from') From:
+        input(type='text', id='from', name='from')
+        br
+        label(for='to') To:
+        input(type='text', id='to', name='to')
+        br
+        label(for='date') Date:
+        input(type='date', id='date', name='date')
+        br
+        button(type='submit') Book Now
+
+    .section
+      h2 Available Buses
+      a(href='/bus') View Buses
+
+    .section
+      h2 User Information
+      a(href='/users') View Users
