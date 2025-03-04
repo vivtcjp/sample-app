@@ -1,10 +1,6 @@
 {
   "files": [
-    ".gitignore",
-    "Dockerfile",
-    "README.md",
     "app.js",
-    "docker-compose.yml",
     "package-lock.json",
     "package.json"
   ],
@@ -19,14 +15,6 @@
     "bin": {
       "files": [
         "www"
-      ],
-      "directories": {}
-    },
-    "models": {
-      "files": [
-        "booking.js",
-        "bus.js",
-        "user.js"
       ],
       "directories": {}
     },
@@ -51,8 +39,6 @@
     },
     "routes": {
       "files": [
-        "booking.js",
-        "bus.js",
         "index.js",
         "users.js"
       ],
@@ -60,8 +46,6 @@
     },
     "views": {
       "files": [
-        "booking.jade",
-        "bus.jade",
         "error.jade",
         "index.jade",
         "layout.jade"

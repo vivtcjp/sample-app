@@ -1,28 +1,23 @@
 extends layout
 
 block content
-  h1 Bus Booking App
-  p Welcome to autonomous bus booking
-
-  .container
-    .section
-      h2 Book a Bus
-      form(action='/booking', method='post')
-        label(for='from') From:
-        input(type='text', id='from', name='from')
-        br
-        label(for='to') To:
-        input(type='text', id='to', name='to')
-        br
-        label(for='date') Date:
-        input(type='date', id='date', name='date')
-        br
-        button(type='submit') Book Now
-
-    .section
-      h2 Available Buses
-      a(href='/bus') View Buses
-
-    .section
-      h2 User Information
-      a(href='/users') View Users
+  h1= title
+  p Welcome to #{title}
+  form(action='/submit', method='post')
+    label(for='source') Source:
+    select(name='source')
+      option(value='Tokyo') Tokyo
+      option(value='Osaka') Osaka
+      option(value='Kyoto') Kyoto
+      option(value='Nagoya') Nagoya
+      option(value='Sapporo') Sapporo
+    br
+    label(for='destination') Destination:
+    select(name='destination')
+      option(value='Tokyo') Tokyo
+      option(value='Osaka') Osaka
+      option(value='Kyoto') Kyoto
+      option(value='Nagoya') Nagoya
+      option(value='Sapporo') Sapporo
+    br
+    button(type='submit') Submit
