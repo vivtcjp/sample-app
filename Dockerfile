@@ -1,4 +1,4 @@
-# Use the official Node.js image as the base image
+# Use an official Node.js runtime as a parent image
 FROM node:14
 
 # Set the working directory
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Define the command to run the application
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]

@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "route": "Route 1",
+      "buses": [
+        "Bus A",
+        "Bus B",
+        "Bus C"
+      ]
+    },
+    {
+      "route": "Route 2",
+      "buses": [
+        "Bus D",
+        "Bus E"
+      ]
+    }
+  ]
+}

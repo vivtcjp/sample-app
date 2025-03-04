@@ -1,7 +1,9 @@
 {
   "files": [
     ".gitignore",
+    "Dockerfile",
     "app.js",
+    "docker-compose.yml",
     "package-lock.json",
     "package.json"
   ],
