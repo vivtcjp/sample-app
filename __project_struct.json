@@ -2,6 +2,7 @@
   "files": [
     ".gitignore",
     "Dockerfile",
+    "README.md",
     "app.js",
     "docker-compose.yml",
     "package-lock.json",
@@ -29,7 +30,9 @@
           "directories": {}
         },
         "javascripts": {
-          "files": [],
+          "files": [
+            "main.js"
+          ],
           "directories": {}
         },
         "stylesheets": {
@@ -42,8 +45,16 @@
     },
     "routes": {
       "files": [
+        "busesConfig.json",
         "index.js",
         "users.js"
+      ],
+      "directories": {}
+    },
+    "tests": {
+      "files": [
+        "mockData.json",
+        "test.js"
       ],
       "directories": {}
     },

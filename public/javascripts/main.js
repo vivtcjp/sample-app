@@ -1,5 +1,5 @@
-document.getElementById('submitBtn').addEventListener('click', function() {
-  var route = document.getElementById('routeInput').value;
+document.getElementById('submit').addEventListener('click', function() {
+  var route = document.getElementById('route').value;
   fetch('/submit', {
     method: 'POST',
     headers: {
@@ -9,12 +9,12 @@ document.getElementById('submitBtn').addEventListener('click', function() {
   })
   .then(response => response.json())
   .then(data => {
-    var list = document.getElementById('busList');
-    list.innerHTML = '';
+    var busesList = document.getElementById('buses-list');
+    busesList.innerHTML = '';
     data.forEach(bus => {
       var listItem = document.createElement('li');
       listItem.textContent = bus;
-      list.appendChild(listItem);
+      busesList.appendChild(listItem);
     });
   })
   .catch(error => {
