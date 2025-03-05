@@ -11,3 +11,7 @@ This is a sample application.
 1. Start the application: `npm start`
 2. Open the application in your browser.
 3. Enter a route and click the submit button to see the list of autonomous buses available on that route.
+
+## New Feature
+
+- The title of the landing page has been changed to 'Autonomous Bus Booking'.
