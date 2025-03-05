@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Autonomous Bus Booking' });
 });
 
 /* POST submit route */
@@ -25,6 +27,23 @@ router.post('/submit', function(req, res, next) {
     } catch (parseError) {
       res.status(500).send('Error parsing configuration file');
     }
+  });
+});
+
+/* GET sources and destinations */
+router.get('/locations', function(req, res, next) {
+  MongoClient.connect(url, function(err, client) {
+    if (err) {
+      return res.status(500).send('Error connecting to database');
+    }
+    var db = client.db('busBooking');
+    var collection = db.collection('locations');
+    collection.find({}).toArray(function(err, docs) {
+      if (err) {
+        return res.status(500).send('Error fetching data from database');
+      }
+      res.json(docs);
+    });
   });
 });
 
