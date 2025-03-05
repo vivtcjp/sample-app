@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "source": "Point A",
+      "destination": "Point B"
+    },
+    {
+      "source": "Point C",
+      "destination": "Point D"
+    }
+  ]
+}

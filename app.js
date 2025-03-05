@@ -3,22 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose'); // Add mongoose
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-// MongoDB connection setup
-mongoose.connect('mongodb://localhost:27017/autonomous_bus_booking', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((err) => {
-  console.error('Failed to connect to MongoDB', err);
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

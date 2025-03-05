@@ -1,0 +1,12 @@
+{
+  "sources": [
+    "Source A",
+    "Source B",
+    "Source C"
+  ],
+  "destinations": [
+    "Destination A",
+    "Destination B",
+    "Destination C"
+  ]
+}

@@ -2,32 +2,16 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  form(action='/submit', method='post')
+  p Hello
+  form#bookingForm(action='/book', method='post')
     label(for='source') Source:
-    select(name='source')
-      each location in locations
-        option(value=location.name) #{location.name}
+    select#source(name='source')
+      each source in sources
+        option(value=source)= source
     br
     label(for='destination') Destination:
-    select(name='destination')
-      each location in locations
-        option(value=location.name) #{location.name}
+    select#destination(name='destination')
+      each destination in destinations
+        option(value=destination)= destination
     br
-    button(type='submit') Submit
-
-script.
-  fetch('/locations')
-    .then(response => response.json())
-    .then(data => {
-      const sourceSelect = document.querySelector('select[name="source"]');
-      const destinationSelect = document.querySelector('select[name="destination"]');
-      data.forEach(location => {
-        const option = document.createElement('option');
-        option.value = location.name;
-        option.textContent = location.name;
-        sourceSelect.appendChild(option.cloneNode(true));
-        destinationSelect.appendChild(option);
-      });
-    })
-    .catch(error => console.error('Error fetching locations:', error));
+    button(type='submit') Book Bus

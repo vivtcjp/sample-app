@@ -8,7 +8,8 @@
     "app.js",
     "docker-compose.yml",
     "package-lock.json",
-    "package.json"
+    "package.json",
+    "routesConfig.json"
   ],
   "directories": {
     ".idea": {
@@ -24,6 +25,18 @@
       ],
       "directories": {}
     },
+    "config": {
+      "files": [
+        "routesConfig.json"
+      ],
+      "directories": {}
+    },
+    "models": {
+      "files": [
+        "Route.js"
+      ],
+      "directories": {}
+    },
     "public": {
       "files": [],
       "directories": {
@@ -32,9 +45,7 @@
           "directories": {}
         },
         "javascripts": {
-          "files": [
-            "main.js"
-          ],
+          "files": [],
           "directories": {}
         },
         "stylesheets": {
@@ -47,16 +58,8 @@
     },
     "routes": {
       "files": [
-        "busesConfig.json",
         "index.js",
         "users.js"
-      ],
-      "directories": {}
-    },
-    "tests": {
-      "files": [
-        "mockData.json",
-        "test.js"
       ],
       "directories": {}
     },

@@ -1,18 +1,33 @@
 # Autonomous Bus Booking
 
-## Running the Application with Docker
+## Running the Application with Docker and MongoDB
 
-1. **Build and run the application**:
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Steps
+
+1. Clone the repository:
 
 ```sh
-docker-compose up --build
+$ git clone <repository-url>
+$ cd <repository-directory>
 ```
 
-2. **Access the application**:
+2. Build and run the application using Docker Compose:
 
-Open your browser and go to `http://localhost:3000`
+```sh
+$ docker-compose up --build
+```
 
-## API Endpoints
+3. Open your browser and navigate to `http://localhost:3000` to access the application.
 
-- **GET /locations**: Fetches the list of locations from MongoDB.
-- **POST /submit**: Submits the selected route and fetches the list of autonomous buses available on that route.
+### Stopping the Application
+
+To stop the application, run:
+
+```sh
+$ docker-compose down
+```
