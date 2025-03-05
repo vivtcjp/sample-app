@@ -36,7 +36,7 @@ router.get('/locations', function(req, res, next) {
     if (err) {
       return res.status(500).send('Error connecting to database');
     }
-    var db = client.db('busBooking');
+    var db = client.db('autonomous_bus_booking');
     var collection = db.collection('locations');
     collection.find({}).toArray(function(err, docs) {
       if (err) {

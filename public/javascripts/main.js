@@ -1,3 +1,26 @@
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/locations')
+    .then(response => response.json())
+    .then(data => {
+      var sourceDropdown = document.getElementById('source');
+      var destinationDropdown = document.getElementById('destination');
+      data.forEach(location => {
+        var sourceOption = document.createElement('option');
+        sourceOption.value = location.name;
+        sourceOption.textContent = location.name;
+        sourceDropdown.appendChild(sourceOption);
+
+        var destinationOption = document.createElement('option');
+        destinationOption.value = location.name;
+        destinationOption.textContent = location.name;
+        destinationDropdown.appendChild(destinationOption);
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+
 document.getElementById('submit').addEventListener('click', function() {
   var route = document.getElementById('route').value;
   fetch('/submit', {

@@ -6,18 +6,28 @@ block content
   form(action='/submit', method='post')
     label(for='source') Source:
     select(name='source')
-      option(value='Tokyo') Tokyo
-      option(value='Osaka') Osaka
-      option(value='Kyoto') Kyoto
-      option(value='Nagoya') Nagoya
-      option(value='Sapporo') Sapporo
+      each location in locations
+        option(value=location.name) #{location.name}
     br
     label(for='destination') Destination:
     select(name='destination')
-      option(value='Tokyo') Tokyo
-      option(value='Osaka') Osaka
-      option(value='Kyoto') Kyoto
-      option(value='Nagoya') Nagoya
-      option(value='Sapporo') Sapporo
+      each location in locations
+        option(value=location.name) #{location.name}
     br
     button(type='submit') Submit
+
+script.
+  fetch('/locations')
+    .then(response => response.json())
+    .then(data => {
+      const sourceSelect = document.querySelector('select[name="source"]');
+      const destinationSelect = document.querySelector('select[name="destination"]');
+      data.forEach(location => {
+        const option = document.createElement('option');
+        option.value = location.name;
+        option.textContent = location.name;
+        sourceSelect.appendChild(option.cloneNode(true));
+        destinationSelect.appendChild(option);
+      });
+    })
+    .catch(error => console.error('Error fetching locations:', error));

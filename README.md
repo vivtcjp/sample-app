@@ -1,63 +1,33 @@
 # Autonomous Bus Booking
 
-This project is an autonomous bus booking application. It allows users to book autonomous buses for various routes.
+## Description
 
-## Features
+This application allows users to book autonomous buses. The dropdown list on the dashboard is populated by retrieving data from MongoDB.
 
-- Display a list of autonomous buses available on a route
-- Retrieve source and destination from MongoDB database
-- Dockerized application for easy deployment
+## Running the Application
 
-## Getting Started
+### Using Docker
 
-### Prerequisites
+1. Build and run the application using Docker Compose:
 
-- Node.js
-- MongoDB
-- Docker
-
-### Installation
-
-1. Clone the repository:
-
-```bash
-$ git clone <repository-url>
+```sh
+docker-compose up --build
 ```
 
-2. Install dependencies:
+2. Access the application at `http://localhost:3000`.
 
-```bash
-$ npm install
+### Without Docker
+
+1. Install dependencies:
+
+```sh
+npm install
 ```
 
-3. Start MongoDB:
+2. Start the application:
 
-```bash
-$ docker-compose up -d mongo
+```sh
+npm start
 ```
 
-4. Start the application:
-
-```bash
-$ npm start
-```
-
-### Docker
-
-To run the application using Docker, use the following command:
-
-```bash
-$ docker-compose up
-```
-
-This will start both the application and MongoDB services.
-
-## Usage
-
-1. Open your browser and navigate to `http://localhost:3000`
-2. Select the source and destination from the dropdowns and click on 'Submit'
-3. The list of available autonomous buses for the selected route will be displayed.
-
-## License
-
-This project is licensed under the MIT License.
+3. Access the application at `http://localhost:3000`.
