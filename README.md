@@ -1,33 +1,18 @@
 # Autonomous Bus Booking
 
-## Description
+## Running the Application with Docker
 
-This application allows users to book autonomous buses. The dropdown list on the dashboard is populated by retrieving data from MongoDB.
-
-## Running the Application
-
-### Using Docker
-
-1. Build and run the application using Docker Compose:
+1. **Build and run the application**:
 
 ```sh
 docker-compose up --build
 ```
 
-2. Access the application at `http://localhost:3000`.
+2. **Access the application**:
 
-### Without Docker
+Open your browser and go to `http://localhost:3000`
 
-1. Install dependencies:
+## API Endpoints
 
-```sh
-npm install
-```
-
-2. Start the application:
-
-```sh
-npm start
-```
-
-3. Access the application at `http://localhost:3000`.
+- **GET /locations**: Fetches the list of locations from MongoDB.
+- **POST /submit**: Submits the selected route and fetches the list of autonomous buses available on that route.
