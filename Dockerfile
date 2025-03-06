@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-ENV PORT 5454
+ENV PORT=5454
 EXPOSE 5454
 
 # Start the application
