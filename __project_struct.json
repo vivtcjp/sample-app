@@ -33,6 +33,7 @@
     },
     "models": {
       "files": [
+        "City.js",
         "Route.js",
         "User.js",
         "booking.js",

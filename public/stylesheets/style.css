@@ -98,3 +98,37 @@ form button:hover {
     padding: 1rem;
     border: 1px solid var(--result-border);
 }
+
+/* Styling for Origin Dropdown */
+#origin-dropdown {
+    padding: 0.5rem;
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    background-color: var(--form-background);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#origin-dropdown:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Styling for Destination Dropdown */
+#destination-dropdown {
+    padding: 0.5rem;
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    background-color: var(--form-background);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#destination-dropdown:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}

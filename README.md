@@ -1,6 +1,19 @@
-# Autonomous Bus Booking
+# Autonomous Bus Booking Application
 
-A fully functional autonomous bus booking application.
+This is a fully functional autonomous bus booking application.
+
+## Features
+
+- User authentication and authorization
+- Search for bus routes
+- Book seats on a bus
+- View detailed schedule
+- Payment processing with Stripe
+- Rate limiting for security
+- Helmet for security headers
+- CORS support
+- Dockerized for easy deployment
+- MongoDB for data storage
 
 ## Setup Instructions
 
@@ -20,9 +33,11 @@ $ npm install
 3. Create a `.env` file in the root directory and add the following environment variables:
 
 ```env
-MONGO_URI=mongodb://localhost:27017/autonomous-bus-booking
-JWT_SECRET=your_jwt_secret
-STRIPE_SECRET_KEY=your_stripe_secret_key
+NODE_ENV=development
+PORT=3000
+MONGO_URI=<your-mongodb-uri>
+JWT_SECRET=<your-jwt-secret>
+STRIPE_SECRET_KEY=<your-stripe-secret-key>
 ```
 
 4. Start the application:
@@ -31,18 +46,28 @@ STRIPE_SECRET_KEY=your_stripe_secret_key
 $ npm start
 ```
 
-5. To run the application using Docker, build and start the containers:
+5. To run the application with Docker, use the following commands:
 
 ```bash
-$ docker-compose up --build
+$ docker-compose build
+$ docker-compose up
 ```
 
-## New Functionality
+## API Endpoints
 
-### Origin Dropdown
+- `GET /search` - Search for bus routes
+- `GET /schedule/:id` - View detailed schedule
+- `POST /book` - Book a seat on a bus
+- `GET /cities` - Get the list of cities for the dropdowns
 
-The 'Origin' field in the search form is now a dropdown list populated from the MongoDB collection called 'cities'.
+## Frontend
 
-### Endpoint to Fetch Cities
+The frontend code is located in the `public` directory. The `main.js` file contains the code to populate the 'Origin' and 'Destination' dropdowns with the list of cities retrieved from the backend.
 
-A new endpoint `/cities` has been added to fetch the list of cities from the 'cities' collection in MongoDB.
+## Styling
+
+The application uses a modern color palette and styling for the dropdowns. The styles are defined in the `public/stylesheets/style.css` file.
+
+## License
+
+This project is licensed under the ISC License.
