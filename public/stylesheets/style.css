@@ -1,13 +1,33 @@
+/* Modern Color Palette */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FF9800;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --header-background: #333;
+    --header-text: #fff;
+    --nav-link: #fff;
+    --nav-link-hover: #FF9800;
+    --form-background: #fff;
+    --form-border: #ddd;
+    --button-background: #4CAF50;
+    --button-text: #fff;
+    --button-hover: #45a049;
+    --result-background: #fff;
+    --result-border: #ddd;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-background);
+    color: var(--header-text);
     padding: 1rem;
     text-align: center;
 }
@@ -23,8 +43,12 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--nav-link);
     text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--nav-link-hover);
 }
 
 main {
@@ -34,6 +58,9 @@ main {
 form {
     display: flex;
     flex-direction: column;
+    background-color: var(--form-background);
+    border: 1px solid var(--form-border);
+    padding: 1rem;
 }
 
 form label {
@@ -43,6 +70,17 @@ form label {
 form input, form button {
     padding: 0.5rem;
     margin-bottom: 1rem;
+}
+
+form button {
+    background-color: var(--button-background);
+    color: var (--button-text);
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--button-hover);
 }
 
 #results {
@@ -55,8 +93,8 @@ form input, form button {
 }
 
 #results ul li {
-    background-color: #fff;
+    background-color: var(--result-background);
     margin-bottom: 1rem;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--result-border);
 }

@@ -17,6 +17,7 @@ const app = express();
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true
 });
 
 // Middleware
@@ -26,6 +27,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(helmet());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Set view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
 // Routes
 app.use('/', indexRouter);
