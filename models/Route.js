@@ -1,27 +1,21 @@
 const mongoose = require('mongoose');
 
 const routeSchema = new mongoose.Schema({
-  source: String,
-  destination: String,
+  source: { type: String, required: true },
+  destination: { type: String, required: true },
+  departureTime: { type: Date, required: true },
+  arrivalTime: { type: Date, required: true },
+  seatCapacity: { type: Number, required: true }
 });
+
+routeSchema.methods.reserveSeats = async function (seats) {
+  if (this.seatCapacity < seats) {
+    throw new Error('Not enough seats available');
+  }
+  this.seatCapacity -= seats;
+  await this.save();
+};
 
 const Route = mongoose.model('Route', routeSchema);
-
-// Insert cities in Japan
-const citiesInJapan = [
-  { source: 'Tokyo', destination: 'Osaka' },
-  { source: 'Kyoto', destination: 'Hiroshima' },
-  { source: 'Nagoya', destination: 'Fukuoka' },
-  { source: 'Sapporo', destination: 'Sendai' },
-  { source: 'Naha', destination: 'Kagoshima' }
-];
-
-Route.insertMany(citiesInJapan, (err, docs) => {
-  if (err) {
-    console.error('Error inserting cities in Japan:', err);
-  } else {
-    console.log('Cities in Japan inserted successfully:', docs);
-  }
-});
 
 module.exports = Route;

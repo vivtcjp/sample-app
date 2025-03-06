@@ -2,16 +2,12 @@ extends layout
 
 block content
   h1= title
-  p Hello
-  form#bookingForm(action='/book', method='post')
-    label(for='source') Source:
-    select#source(name='source')
-      each source in sources
-        option(value=source)= source
-    br
-    label(for='destination') Destination:
-    select#destination(name='destination')
-      each destination in destinations
-        option(value=destination)= destination
-    br
-    button(type='submit') Book Bus
+  p Welcome to #{title}
+  select#source
+    option(value='') Select Source
+    each route in routes
+      option(value=route.source) #{route.source}
+  select#destination
+    option(value='') Select Destination
+    each route in routes
+      option(value=route.destination) #{route.destination}

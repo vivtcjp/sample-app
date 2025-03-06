@@ -1,16 +1,27 @@
 {
-  "name": "sample-app",
-  "version": "0.0.0",
-  "private": true,
+  "name": "autonomous-bus-booking",
+  "version": "1.0.0",
+  "description": "A fully functional autonomous bus booking application",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "jsonwebtoken": "^8.5.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "morgan": "^1.10.0",
+    "cookie-parser": "^1.4.5",
+    "helmet": "^4.4.1",
+    "express-rate-limit": "^5.2.6",
+    "stripe": "^8.137.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "author": "",
+  "license": "ISC"
 }

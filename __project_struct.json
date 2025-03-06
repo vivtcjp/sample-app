@@ -4,12 +4,10 @@
     ".env",
     ".gitignore",
     "Dockerfile",
-    "README.md",
     "app.js",
     "docker-compose.yml",
     "package-lock.json",
-    "package.json",
-    "routesConfig.json"
+    "package.json"
   ],
   "directories": {
     ".idea": {
@@ -22,12 +20,6 @@
     "bin": {
       "files": [
         "www"
-      ],
-      "directories": {}
-    },
-    "config": {
-      "files": [
-        "routesConfig.json"
       ],
       "directories": {}
     },
