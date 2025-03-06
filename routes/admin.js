@@ -3,7 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const auth = require('../middlewares/auth');
 const Route = require('../models/Route');
-const Booking = require('../models/Booking');
+const Booking = require('../models/booking');
 
 // Create a new bus route
 router.post('/routes', [
