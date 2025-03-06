@@ -24,21 +24,34 @@
       ],
       "directories": {}
     },
+    "middlewares": {
+      "files": [
+        "auth.js",
+        "validation.js"
+      ],
+      "directories": {}
+    },
     "models": {
       "files": [
-        "Route.js"
+        "Route.js",
+        "booking.js",
+        "db.js"
       ],
       "directories": {}
     },
     "public": {
-      "files": [],
+      "files": [
+        "index.html"
+      ],
       "directories": {
         "images": {
           "files": [],
           "directories": {}
         },
         "javascripts": {
-          "files": [],
+          "files": [
+            "main.js"
+          ],
           "directories": {}
         },
         "stylesheets": {
@@ -52,7 +65,9 @@
     "routes": {
       "files": [
         "admin.js",
+        "dashboard.js",
         "index.js",
+        "payment.js",
         "users.js"
       ],
       "directories": {}
