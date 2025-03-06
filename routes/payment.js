@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const auth = require('../middlewares/auth');
-const Booking = require('../models/Booking');
+const Booking = require('../models/booking');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Stub payment handling

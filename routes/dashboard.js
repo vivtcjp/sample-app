@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middlewares/auth');
-const Booking = require('../models/Booking');
+const Booking = require('../models/booking');
 
 // View user bookings
 router.get('/bookings', auth, async (req, res) => {
