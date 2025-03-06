@@ -1,129 +1,59 @@
 # Autonomous Bus Booking Application
 
 ## Description
-
-A fully functional autonomous bus booking application built with Node.js, Express, HTML, CSS, and JavaScript. The application supports user registration, login, bus schedule viewing, seat selection, payments, booking history, and an admin interface for managing routes and bookings.
+A fully functional autonomous bus booking application that allows users to register, log in, search for buses, view schedules, select seats, and book tickets. Administrators can manage bus routes, ticket prices, seat capacity, and view all bookings in real-time.
 
 ## Features
+- User registration and login
+- Search for buses based on location, date, and time
+- View detailed schedules and seat availability
+- Select seats and book tickets
+- Payment handling (stubbed)
+- Personal dashboard to view or cancel bookings
+- Admin panel to manage bus routes, ticket prices, seat capacity, and bookings
+- Basic concurrency control to prevent double-booking seats
+- Input validation for all user-facing features
+- JWT authentication for secure operations
 
-- User registration and login with secure password handling and JWT-based authentication
-- View and search for bus schedules by date, time, and location
-- Select seats and process payments
-- Generate booking confirmations and view booking history
-- Admin interface to create, edit, and delete bus routes, schedule times, adjust seat capacities, and manage bookings in real time
-- Robust concurrency control to prevent seat overbooking
-- Input validation, rate limiting, and best practices for error handling and security
-
-## Setup and Deployment
+## Setup Instructions
 
 ### Prerequisites
-
 - Node.js
-- MongoDB
-- Docker (optional, for containerization)
+- Docker
+- Docker Compose
 
 ### Installation
-
 1. Clone the repository:
-
-```bash
-$ git clone <repository-url>
-$ cd autonomous-bus-booking
-```
-
+   ```
+   git clone <repository-url>
+   cd autonomous-bus-booking
+   ```
 2. Install dependencies:
-
-```bash
-$ npm install
-```
-
-3. Set up environment variables:
-
-Create a `.env` file in the root directory and add the following variables:
-
-```
-PORT=3000
-MONGO_URI=mongodb://localhost:27017/busbooking
-JWT_SECRET=your_jwt_secret
-STRIPE_SECRET_KEY=your_stripe_secret_key
-```
-
+   ```
+   npm install
+   ```
+3. Create a `.env` file in the root directory and add the following environment variables:
+   ```
+   MONGO_URI=mongodb://localhost:27017/busbooking
+   JWT_SECRET=<your-jwt-secret>
+   ```
 4. Start the application:
+   ```
+   npm start
+   ```
 
-```bash
-$ npm start
-```
+### Docker Setup
+1. Build and start the Docker containers:
+   ```
+   docker-compose up --build
+   ```
+2. Access the application at `http://localhost:3000`
 
-### Docker Deployment
-
-1. Build the Docker image:
-
-```bash
-$ docker build -t autonomous-bus-booking .
-```
-
-2. Run the Docker container:
-
-```bash
-$ docker run -p 3000:3000 autonomous-bus-booking
-```
-
-### Docker Compose Deployment
-
-1. Create a `docker-compose.yml` file in the root directory with the following content:
-
-```yaml
-version: '3.8'
-services:
-  app:
-    image: node:14
-    working_dir: /app
-    volumes:
-      - .:/app
-    command: npm start
-    ports:
-      - '3000:3000'
-    environment:
-      - PORT=3000
-      - MONGO_URI=mongodb://mongo:27017/busbooking
-      - JWT_SECRET=your_jwt_secret
-      - STRIPE_SECRET_KEY=your_stripe_secret_key
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo:4.4
-    ports:
-      - '27017:27017'
-    volumes:
-      - mongo-data:/data/db
-volumes:
-  mongo-data:
-```
-
-2. Start the application using Docker Compose:
-
-```bash
-$ docker-compose up
-```
-
-## Testing
-
-### Unit Tests
-
-To run unit tests, use the following command:
-
-```bash
-$ npm test
-```
-
-### Integration Tests
-
-To run integration tests, use the following command:
-
-```bash
-$ npm run test:integration
-```
+### Seed Data
+1. Run the seed script to populate initial bus route data:
+   ```
+   node seed.js
+   ```
 
 ## License
-
 This project is licensed under the ISC License.
