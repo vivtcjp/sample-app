@@ -4,16 +4,16 @@ services:
   app:
     build: .
     ports:
-      - "5454:3000"
+      - '3000:3000'
     environment:
-      - MONGO_URI=mongodb://mongo:27017/busbooking
+      - MONGO_URI=mongodb://mongo:27017/autonomous-bus-booking
     depends_on:
       - mongo
 
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo-data:/data/db
 

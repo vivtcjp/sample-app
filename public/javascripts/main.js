@@ -1,19 +1,15 @@
-document.getElementById('searchForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+  const originDropdown = document.getElementById('origin-dropdown');
 
-    const origin = document.getElementById('origin').value;
-    const destination = document.getElementById('destination').value;
-    const date = document.getElementById('date').value;
-
-    const response = await fetch(`/search?origin=${origin}&destination=${destination}&date=${date}`);
-    const results = await response.json();
-
-    const resultsList = document.getElementById('resultsList');
-    resultsList.innerHTML = '';
-
-    results.forEach(route => {
-        const li = document.createElement('li');
-        li.textContent = `${route.origin} to ${route.destination} - Departure: ${new Date(route.departureTime).toLocaleString()} - Arrival: ${new Date(route.arrivalTime).toLocaleString()} - Price: $${route.price}`;
-        resultsList.appendChild(li);
-    });
+  fetch('/cities')
+    .then(response => response.json())
+    .then(cities => {
+      cities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city.name;
+        option.textContent = city.name;
+        originDropdown.appendChild(option);
+      });
+    })
+    .catch(error => console.error('Error fetching cities:', error));
 });

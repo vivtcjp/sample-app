@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../middlewares/auth');
 const Route = require('../models/Route');
 const Booking = require('../models/booking');
+const City = require('../models/City'); // Add this line
 
 // Search for buses
 router.get('/search', async (req, res) => {
@@ -70,6 +71,17 @@ router.post('/book', [
     const booking = await newBooking.save();
 
     res.json(booking);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// Add this new endpoint
+router.get('/cities', async (req, res) => {
+  try {
+    const cities = await City.find();
+    res.json(cities);
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server error');
