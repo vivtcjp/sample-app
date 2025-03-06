@@ -17,7 +17,8 @@
     "cookie-parser": "^1.4.5",
     "helmet": "^4.4.1",
     "express-rate-limit": "^5.2.6",
-    "stripe": "^8.137.0"
+    "stripe": "^8.137.0",
+    "express-validator": "^6.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

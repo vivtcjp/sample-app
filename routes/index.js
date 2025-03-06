@@ -1,88 +1,78 @@
 const express = require('express');
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
+const auth = require('../middlewares/auth');
 const Route = require('../models/Route');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const Booking = require('../models/Booking');
-const auth = require('../middleware/auth');
 
-// View bus schedules
-router.get('/schedules', async (req, res) => {
+// Search for buses
+router.get('/search', async (req, res) => {
+  const { origin, destination, date } = req.query;
+
   try {
-    const { date, source, destination } = req.query;
-    const schedules = await Route.find({
-      departureTime: { $gte: new Date(date) },
-      source,
-      destination
+    const routes = await Route.find({
+      origin,
+      destination,
+      departureTime: { $gte: new Date(date) }
     });
-    res.json(schedules);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+
+    res.json(routes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
   }
 });
 
-// Select seats
-router.post('/select-seats', async (req, res) => {
-  const { routeId, seats } = req.body;
+// View detailed schedule
+router.get('/schedule/:id', async (req, res) => {
+  try {
+    const route = await Route.findById(req.params.id);
+
+    if (!route) return res.status(404).json({ msg: 'Route not found' });
+
+    res.json(route);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// Book a seat
+router.post('/book', [
+  auth,
+  [
+    check('routeId', 'Route ID is required').not().isEmpty(),
+    check('seatNumber', 'Seat number is required').isNumeric()
+  ]
+], async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { routeId, seatNumber } = req.body;
+
   try {
     const route = await Route.findById(routeId);
-    if (!route) {
-      return res.status(404).json({ message: 'Route not found' });
-    }
-    if (route.seatCapacity < seats) {
-      return res.status(400).json({ message: 'Not enough seats available' });
-    }
-    route.seatCapacity -= seats;
-    await route.save();
-    res.json({ message: 'Seats selected successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
 
-// Process payment
-router.post('/payment', async (req, res) => {
-  const { token, amount } = req.body;
-  try {
-    const charge = await stripe.charges.create({
-      amount,
-      currency: 'usd',
-      source: token,
-      description: 'Bus booking payment'
-    });
-    res.json({ message: 'Payment successful', charge });
-  } catch (error) {
-    res.status(500).json({ message: 'Payment failed', error });
-  }
-});
+    if (!route) return res.status(404).json({ msg: 'Route not found' });
 
-// Generate booking confirmation
-router.post('/confirm-booking', auth, async (req, res) => {
-  const { routeId, seats } = req.body;
-  try {
-    const route = await Route.findById(routeId);
-    if (!route) {
-      return res.status(404).json({ message: 'Route not found' });
-    }
-    const booking = new Booking({
+    const existingBooking = await Booking.findOne({ route: routeId, seatNumber });
+
+    if (existingBooking) return res.status(400).json({ msg: 'Seat already booked' });
+
+    const newBooking = new Booking({
       user: req.user.id,
       route: routeId,
-      seats,
-      bookingDate: new Date()
+      seatNumber
     });
-    await booking.save();
-    res.json({ message: 'Booking confirmed', booking });
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
-  }
-});
 
-// View booking history
-router.get('/booking-history', auth, async (req, res) => {
-  try {
-    const bookings = await Booking.find({ user: req.user.id }).populate('route');
-    res.json(bookings);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    const booking = await newBooking.save();
+
+    res.json(booking);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
   }
 });
 

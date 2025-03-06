@@ -4,6 +4,7 @@
     ".env",
     ".gitignore",
     "Dockerfile",
+    "README.md",
     "app.js",
     "docker-compose.yml",
     "package-lock.json",
@@ -50,6 +51,7 @@
     },
     "routes": {
       "files": [
+        "admin.js",
         "index.js",
         "users.js"
       ],
