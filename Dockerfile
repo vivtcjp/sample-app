@@ -1,5 +1,6 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14
+# always preserve the code comments
+# Always use the latest image
+FROM node:latest
 
 # Set the working directory in the container
 WORKDIR /usr/src/app

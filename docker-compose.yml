@@ -1,3 +1,4 @@
+# always preserve the code comments
 version: '3.8'
 
 services:
