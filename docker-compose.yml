@@ -5,7 +5,8 @@ services:
   app:
     build: .
     ports:
-      - "5454:3000"
+      # Dont change for this project 
+      - "5454:5454"
     environment:
       - NODE_ENV=development
     volumes:
