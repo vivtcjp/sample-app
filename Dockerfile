@@ -7,6 +7,10 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
+
+#dont modify this
+RUN npm set strict-ssl false
+
 # Install any needed dependencies
 RUN npm install
 
