@@ -4,9 +4,11 @@ services:
   app:
     build: .
     ports:
-      - "5454:3000"
+      - '3000:3000'
     environment:
-      - MONGO_URI=mongodb://mongo:27017/autonomous-bus-booking
+      - NODE_ENV=development
+    volumes:
+      - .:/usr/src/app
     depends_on:
       - mongo
 

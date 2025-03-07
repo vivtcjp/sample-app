@@ -1,19 +1,6 @@
-# Autonomous Bus Booking Application
+# Autonomous Bus Booking
 
-This is a fully functional autonomous bus booking application.
-
-## Features
-
-- User authentication and authorization
-- Search for bus routes
-- Book seats on a bus
-- View detailed schedule
-- Payment processing with Stripe
-- Rate limiting for security
-- Helmet for security headers
-- CORS support
-- Dockerized for easy deployment
-- MongoDB for data storage
+A fully functional autonomous bus booking application.
 
 ## Setup Instructions
 
@@ -30,44 +17,48 @@ $ cd autonomous-bus-booking
 $ npm install
 ```
 
-3. Create a `.env` file in the root directory and add the following environment variables:
-
-```env
-NODE_ENV=development
-PORT=3000
-MONGO_URI=<your-mongodb-uri>
-JWT_SECRET=<your-jwt-secret>
-STRIPE_SECRET_KEY=<your-stripe-secret-key>
-```
-
-4. Start the application:
+3. Start the application:
 
 ```bash
 $ npm start
 ```
 
-5. To run the application with Docker, use the following commands:
+4. To run the application using Docker:
 
 ```bash
-$ docker-compose build
-$ docker-compose up
+$ docker-compose up --build
 ```
+
+## Features
+
+- User authentication and authorization
+- Booking management
+- Payment processing
+- City selection for Origin and Destination
 
 ## API Endpoints
 
-- `GET /search` - Search for bus routes
-- `GET /schedule/:id` - View detailed schedule
-- `POST /book` - Book a seat on a bus
-- `GET /cities` - Get the list of cities for the dropdowns
+- `GET /api/cities`: Fetch all cities
 
-## Frontend
+## Frontend Components
 
-The frontend code is located in the `public` directory. The `main.js` file contains the code to populate the 'Origin' and 'Destination' dropdowns with the list of cities retrieved from the backend.
+- `OriginDropdown`: Dropdown for selecting the origin city
+- `DestinationDropdown`: Dropdown for selecting the destination city
 
-## Styling
+## Dependencies
 
-The application uses a modern color palette and styling for the dropdowns. The styles are defined in the `public/stylesheets/style.css` file.
-
-## License
-
-This project is licensed under the ISC License.
+- bcryptjs
+- cookie-parser
+- dotenv
+- express
+- express-rate-limit
+- express-validator
+- helmet
+- jsonwebtoken
+- mongoose
+- morgan
+- stripe
+- cors
+- jade
+- axios
+- nodemon (dev dependency)

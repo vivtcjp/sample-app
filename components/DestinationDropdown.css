@@ -1,15 +1,14 @@
 .destination-dropdown {
   width: 100%;
   padding: 10px;
+  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  font-family: Arial, sans-serif;
-  margin-bottom: 20px;
 }
 
 .destination-dropdown:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #66afe9;
   outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
