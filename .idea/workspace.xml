@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61b3e458-c384-487d-910c-084d14336b30" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DestinationDropdown.css" beforeDir="false" afterPath="$PROJECT_DIR$/components/DestinationDropdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/DestinationDropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/DestinationDropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +104,7 @@
       <workItem from="1740715731435" duration="659000" />
       <workItem from="1740721054888" duration="7389000" />
       <workItem from="1741053975954" duration="2575000" />
-      <workItem from="1741158963541" duration="17897000" />
+      <workItem from="1741158963541" duration="18479000" />
     </task>
     <servers />
   </component>

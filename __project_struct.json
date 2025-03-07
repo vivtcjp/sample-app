@@ -26,6 +26,7 @@
     },
     "components": {
       "files": [
+        "Dashboard.js",
         "DestinationDropdown.css",
         "DestinationDropdown.js"
       ],

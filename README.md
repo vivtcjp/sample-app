@@ -8,22 +8,27 @@ A fully functional autonomous bus booking application.
 
 ```bash
 $ git clone <repository-url>
+```
+
+2. Navigate to the project directory:
+
+```bash
 $ cd autonomous-bus-booking
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```bash
 $ npm install
 ```
 
-3. Start the application:
+4. Start the application:
 
 ```bash
 $ npm start
 ```
 
-4. To run the application using Docker:
+5. To run the application using Docker:
 
 ```bash
 $ docker-compose up --build
@@ -31,34 +36,25 @@ $ docker-compose up --build
 
 ## Features
 
-- User authentication and authorization
-- Booking management
-- Payment processing
-- City selection for Origin and Destination
+- Search for buses by origin, destination, and date.
+- User authentication and authorization.
+- Booking management.
+- Payment integration with Stripe.
 
 ## API Endpoints
 
-- `GET /api/cities`: Fetch all cities
+- `GET /api/cities`: Fetch the list of cities.
+- `POST /api/bookings`: Create a new booking.
+- `GET /api/bookings`: Fetch user bookings.
+- `POST /api/auth/register`: Register a new user.
+- `POST /api/auth/login`: User login.
 
-## Frontend Components
+## Environment Variables
 
-- `OriginDropdown`: Dropdown for selecting the origin city
-- `DestinationDropdown`: Dropdown for selecting the destination city
+Create a `.env` file in the root directory and add the following environment variables:
 
-## Dependencies
-
-- bcryptjs
-- cookie-parser
-- dotenv
-- express
-- express-rate-limit
-- express-validator
-- helmet
-- jsonwebtoken
-- mongoose
-- morgan
-- stripe
-- cors
-- jade
-- axios
-- nodemon (dev dependency)
+```
+MONGO_URI=<your-mongodb-uri>
+JWT_SECRET=<your-jwt-secret>
+STRIPE_SECRET_KEY=<your-stripe-secret-key>
+```
