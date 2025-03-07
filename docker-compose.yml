@@ -1,13 +1,25 @@
+# always preserve the code comments
 version: '3.8'
+
 services:
   app:
     build: .
     ports:
-      - '5454:5454'
+      # Dont change for this project 
+      - "5454:5454"
     environment:
-      - MONGO_URI=${MONGO_URI}
-      - JWT_SECRET=${JWT_SECRET}
-      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - NODE_ENV=development
     volumes:
       - .:/usr/src/app
-    command: npm start
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
