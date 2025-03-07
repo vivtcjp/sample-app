@@ -17,7 +17,7 @@ const Dashboard = () => {
         <label htmlFor="date">Date:</label>
         <input type="date" id="date" name="date" />
         
-        <button type="submit">Search</button>
+        <button type="submit" className="redbus-button">Search</button>
       </form>
     </div>
   );

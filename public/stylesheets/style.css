@@ -1,6 +1,6 @@
 /* Modern Color Palette */
 :root {
-    --primary-color: #4CAF50;
+    --primary-color: #D84E55; /* redBus primary color */
     --secondary-color: #FF9800;
     --background-color: #f4f4f4;
     --text-color: #333;
@@ -10,9 +10,9 @@
     --nav-link-hover: #FF9800;
     --form-background: #fff;
     --form-border: #ddd;
-    --button-background: #4CAF50;
+    --button-background: #D84E55; /* redBus button color */
     --button-text: #fff;
-    --button-hover: #45a049;
+    --button-hover: #C7434A; /* darker shade for hover */
     --result-background: #fff;
     --result-border: #ddd;
 }
@@ -74,7 +74,7 @@ form input, form button {
 
 form button {
     background-color: var(--button-background);
-    color: var (--button-text);
+    color: var(--button-text);
     border: none;
     cursor: pointer;
 }
@@ -113,7 +113,7 @@ form button:hover {
 #origin-dropdown:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 5px rgba(216, 78, 85, 0.5); /* redBus primary color shadow */
 }
 
 /* Styling for Destination Dropdown */
@@ -130,5 +130,20 @@ form button:hover {
 #destination-dropdown:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 5px rgba(216, 78, 85, 0.5); /* redBus primary color shadow */
+}
+
+/* Styling for redBus button */
+.redbus-button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+.redbus-button:hover {
+    background-color: var(--button-hover);
 }
