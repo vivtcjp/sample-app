@@ -64,3 +64,4 @@ STRIPE_SECRET_KEY=<your-stripe-secret-key>
 - Updated the home page to change the destination input to a dropdown list, using the same API that is used in the origin dropdown list.
 - Ensured the DestinationDropdown component correctly fetches and displays the list of destinations using the API.
 - Updated Dockerfile and docker-compose.yml to ensure the application can be containerized with the new changes.
+- Changed the search button color to green by updating the CSS variable in the style.css file.

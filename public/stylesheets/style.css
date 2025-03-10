@@ -10,9 +10,9 @@
     --nav-link-hover: #FF9800;
     --form-background: #fff;
     --form-border: #ddd;
-    --button-background: #D84E55; /* redBus button color */
+    --button-background: #008000; /* green button color */
     --button-text: #fff;
-    --button-hover: #C7434A; /* darker shade for hover */
+    --button-hover: #006400; /* darker shade for hover */
     --result-background: #fff;
     --result-border: #ddd;
 }
