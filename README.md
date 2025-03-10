@@ -1,70 +1,59 @@
-# Autonomous Bus Booking
+# Autonomous Bus Booking Application
 
-A fully functional autonomous bus booking application.
+## Overview
+This application allows users to book bus tickets online. It includes features such as user authentication, bus search, booking, and payment processing.
 
-## Setup Instructions
+## Features
+- User authentication (registration, login, logout)
+- Search for buses based on origin, destination, and date
+- View bus schedules and seat availability
+- Book bus tickets
+- Payment processing using Stripe
+- Admin dashboard for managing routes and bookings
 
+## Technologies Used
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- React.js
+- Material-UI
+- Docker
+- Docker Compose
+
+## Getting Started
+
+### Prerequisites
+- Node.js
+- Docker
+- Docker Compose
+
+### Installation
 1. Clone the repository:
-
 ```bash
 $ git clone <repository-url>
 ```
-
 2. Navigate to the project directory:
-
 ```bash
 $ cd autonomous-bus-booking
 ```
-
 3. Install dependencies:
-
 ```bash
 $ npm install
 ```
-
-4. Start the application:
-
-```bash
-$ npm start
-```
-
-5. To run the application using Docker:
-
+4. Start the application using Docker Compose:
 ```bash
 $ docker-compose up --build
 ```
 
-## Features
+### API Endpoints
+- `GET /api/cities`: Fetch all cities
+- `GET /api/routes/search`: Search for bus routes based on origin, destination, and date
+- `POST /api/routes/book`: Book a seat on a bus
 
-- Search for buses by origin, destination, and date.
-- User authentication and authorization.
-- Booking management.
-- Payment integration with Stripe.
+### Environment Variables
+- `MONGO_URI`: MongoDB connection string
+- `PORT`: Port number for the application
 
-## API Endpoints
-
-- `GET /api/cities`: Fetch the list of cities.
-- `POST /api/bookings`: Create a new booking.
-- `GET /api/bookings`: Fetch user bookings.
-- `POST /api/auth/register`: Register a new user.
-- `POST /api/auth/login`: User login.
-
-## Environment Variables
-
-Create a `.env` file in the root directory and add the following environment variables:
-
-```
-MONGO_URI=<your-mongodb-uri>
-JWT_SECRET=<your-jwt-secret>
-STRIPE_SECRET_KEY=<your-stripe-secret-key>
-```
-
-## Changes Made
-
-- Updated the home page to change the destination input to a dropdown list, using the same API that is used in the origin dropdown list.
-- Ensured the DestinationDropdown component correctly fetches and displays the list of destinations using the API.
-- Updated Dockerfile and docker-compose.yml to ensure the application can be containerized with the new changes.
-- Changed the search button color to green by updating the CSS variable in the style.css file.
-- Implemented Material Design standards for all UI elements by updating components and stylesheets.
-- Added dependencies for Material Design components in package.json.
-- Clicking on search calls the API in the backend to retrieve data from the 'bus-routes' collection, which contains data about buses running from source to destination, the weekday they are operating, and the cost of the trip.
+### License
+This project is licensed under the MIT License.
