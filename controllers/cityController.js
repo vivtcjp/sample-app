@@ -21,3 +21,20 @@ exports.getDestinationCities = async (req, res) => {
     res.status(500).json({ message: 'Error fetching destination cities', error });
   }
 };
+
+// Search bus routes
+exports.searchBusRoutes = async (req, res) => {
+  const { origin, destination, weekday } = req.query;
+
+  try {
+    const routes = await Route.find({
+      source: origin,
+      destination,
+      weekday
+    });
+
+    res.status(200).json(routes);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching bus routes', error });
+  }
+};

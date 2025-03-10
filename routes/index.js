@@ -10,13 +10,13 @@ dotenv.config();
 
 // Search for buses
 router.get('/search', async (req, res) => {
-  const { origin, destination, date } = req.query;
+  const { origin, destination, weekday } = req.query;
 
   try {
     const routes = await Route.find({
-      origin,
+      source: origin,
       destination,
-      departureTime: { $gte: new Date(date) }
+      weekday
     });
 
     res.json(routes);

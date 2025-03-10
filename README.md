@@ -1,59 +1,100 @@
-# Autonomous Bus Booking Application
+# Autonomous Bus Booking
 
 ## Overview
-This application allows users to book bus tickets online. It includes features such as user authentication, bus search, booking, and payment processing.
+
+A fully functional autonomous bus booking application.
 
 ## Features
-- User authentication (registration, login, logout)
-- Search for buses based on origin, destination, and date
-- View bus schedules and seat availability
-- Book bus tickets
-- Payment processing using Stripe
-- Admin dashboard for managing routes and bookings
 
-## Technologies Used
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- React.js
-- Material-UI
-- Docker
-- Docker Compose
+- User authentication and authorization
+- Search for bus routes
+- Book seats on buses
+- View detailed bus schedules
+- Manage user profiles
+- Payment integration with Stripe
 
-## Getting Started
+## Setup
 
-### Prerequisites
-- Node.js
-- Docker
-- Docker Compose
-
-### Installation
 1. Clone the repository:
+
 ```bash
 $ git clone <repository-url>
 ```
-2. Navigate to the project directory:
-```bash
-$ cd autonomous-bus-booking
-```
-3. Install dependencies:
+
+2. Install dependencies:
+
 ```bash
 $ npm install
 ```
-4. Start the application using Docker Compose:
+
+3. Set up environment variables:
+
+Create a `.env` file in the root directory and add the following variables:
+
+```
+MONGO_URI=mongodb://localhost:27017/busbooking
+STRIPE_SECRET_KEY=<your-stripe-secret-key>
+JWT_SECRET=<your-jwt-secret>
+```
+
+4. Start the application:
+
+```bash
+$ npm start
+```
+
+## API Endpoints
+
+### Search Bus Routes
+
+```
+GET /search?origin=<origin>&destination=<destination>&weekday=<weekday>
+```
+
+Search for bus routes based on the origin, destination, and weekday.
+
+### View Detailed Schedule
+
+```
+GET /schedule/:id
+```
+
+View detailed schedule for a specific bus route.
+
+### Book a Seat
+
+```
+POST /book
+```
+
+Book a seat on a bus route.
+
+### Fetch Cities
+
+```
+GET /cities
+```
+
+Fetch all cities.
+
+### Fetch Destination Cities
+
+```
+GET /destination-cities
+```
+
+Fetch cities for the destination dropdown.
+
+## Docker Setup
+
+1. Build and run the Docker containers:
+
 ```bash
 $ docker-compose up --build
 ```
 
-### API Endpoints
-- `GET /api/cities`: Fetch all cities
-- `GET /api/routes/search`: Search for bus routes based on origin, destination, and date
-- `POST /api/routes/book`: Book a seat on a bus
+2. Access the application at `http://localhost:5454`.
 
-### Environment Variables
-- `MONGO_URI`: MongoDB connection string
-- `PORT`: Port number for the application
+## License
 
-### License
-This project is licensed under the MIT License.
+This project is licensed under the ISC License.
