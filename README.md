@@ -98,3 +98,7 @@ $ docker-compose up --build
 ## License
 
 This project is licensed under the ISC License.
+
+## New Feature: Search API for Bus Routes
+
+A new search API has been implemented to retrieve data from the 'bus-routes' collection. This collection contains information about buses running from a source to a destination, the weekday they operate, and the cost of the trip. The search API is called when the user clicks on the search button in the frontend.
