@@ -1,14 +1,12 @@
-# Preserve comment , use the existing
-# Use the official Node.js image as the base image, alway use 18 for this project
+# Use the official Node.js image as the base image
 FROM node:18
+
 # Set the working directory
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Dont remove for this project
-RUN npm set strict-ssl false
 # Install dependencies
 RUN npm install
 

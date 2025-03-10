@@ -1,4 +1,6 @@
 const City = require('../models/City');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Fetch all cities
 exports.getCities = async (req, res) => {

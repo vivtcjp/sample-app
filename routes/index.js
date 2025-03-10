@@ -4,7 +4,9 @@ const { check, validationResult } = require('express-validator');
 const auth = require('../middlewares/auth');
 const Route = require('../models/Route');
 const Booking = require('../models/booking');
-const City = require('../models/City'); // Add this line
+const City = require('../models/City');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Search for buses
 router.get('/search', async (req, res) => {
