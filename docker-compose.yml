@@ -5,9 +5,7 @@ services:
     ports:
       - "5454:5454"
     environment:
-      - MONGO_URI=${MONGO_URI}
-      - JWT_SECRET=${JWT_SECRET}
-      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - MONGO_URI=mongodb://mongo:27017/mydb
     depends_on:
       - mongo
   mongo:
