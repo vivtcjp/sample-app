@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 import './DestinationDropdown.css';
 
 const DestinationDropdown = () => {
@@ -19,14 +20,23 @@ const DestinationDropdown = () => {
   }, []);
 
   return (
-    <select className="destination-dropdown">
-      <option value="">Select Destination</option>
-      {cities.map((city) => (
-        <option key={city._id} value={city.name}>
-          {city.name}
-        </option>
-      ))}
-    </select>
+    <FormControl fullWidth margin="normal">
+      <InputLabel htmlFor="destination">Destination</InputLabel>
+      <Select
+        id="destination"
+        className="destination-dropdown"
+        defaultValue=""
+      >
+        <MenuItem value="">
+          <em>Select Destination</em>
+        </MenuItem>
+        {cities.map((city) => (
+          <MenuItem key={city._id} value={city.name}>
+            {city.name}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 };
 

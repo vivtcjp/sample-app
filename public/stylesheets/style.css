@@ -1,24 +1,24 @@
-/* Modern Color Palette */
+/* Material Design Color Palette */
 :root {
-    --primary-color: #D84E55; /* redBus primary color */
-    --secondary-color: #FF9800;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --header-background: #333;
-    --header-text: #fff;
-    --nav-link: #fff;
-    --nav-link-hover: #FF9800;
-    --form-background: #fff;
-    --form-border: #ddd;
-    --button-background: #008000; /* green button color */
-    --button-text: #fff;
-    --button-hover: #006400; /* darker shade for hover */
-    --result-background: #fff;
-    --result-border: #ddd;
+    --primary-color: #6200EE; /* Material Design primary color */
+    --secondary-color: #03DAC6; /* Material Design secondary color */
+    --background-color: #FFFFFF; /* Material Design background color */
+    --text-color: #000000; /* Material Design text color */
+    --header-background: #6200EE; /* Material Design header background color */
+    --header-text: #FFFFFF; /* Material Design header text color */
+    --nav-link: #FFFFFF; /* Material Design navigation link color */
+    --nav-link-hover: #BB86FC; /* Material Design navigation link hover color */
+    --form-background: #FFFFFF; /* Material Design form background color */
+    --form-border: #E0E0E0; /* Material Design form border color */
+    --button-background: #6200EE; /* Material Design button background color */
+    --button-text: #FFFFFF; /* Material Design button text color */
+    --button-hover: #3700B3; /* Material Design button hover color */
+    --result-background: #FFFFFF; /* Material Design result background color */
+    --result-border: #E0E0E0; /* Material Design result border color */
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
@@ -113,7 +113,7 @@ form button:hover {
 #origin-dropdown:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(216, 78, 85, 0.5); /* redBus primary color shadow */
+    box-shadow: 0 0 5px rgba(98, 0, 238, 0.5); /* Material Design primary color shadow */
 }
 
 /* Styling for Destination Dropdown */
@@ -130,10 +130,10 @@ form button:hover {
 #destination-dropdown:focus {
     border-color: var(--primary-color);
     outline: none;
-    box-shadow: 0 0 5px rgba(216, 78, 85, 0.5); /* redBus primary color shadow */
+    box-shadow: 0 0 5px rgba(98, 0, 238, 0.5); /* Material Design primary color shadow */
 }
 
-/* Styling for redBus button */
+/* Styling for Material Design button */
 .redbus-button {
     background-color: var(--button-background);
     color: var(--button-text);

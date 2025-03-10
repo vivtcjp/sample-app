@@ -1,4 +1,5 @@
 import React from 'react';
+import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from '@material-ui/core';
 import OriginDropdown from './OriginDropdown';
 import DestinationDropdown from './DestinationDropdown';
 import './Dashboard.css';
@@ -8,16 +9,28 @@ const Dashboard = () => {
     <div className="dashboard">
       <h1>Search</h1>
       <form>
-        <label htmlFor="origin" style={{ fontWeight: 'bold' }}>Origin:</label>
-        <OriginDropdown />
+        <FormControl fullWidth margin="normal">
+          <InputLabel htmlFor="origin">Origin</InputLabel>
+          <OriginDropdown />
+        </FormControl>
         
-        <label htmlFor="destination" style={{ fontWeight: 'bold' }}>Destination:</label>
-        <DestinationDropdown />
+        <FormControl fullWidth margin="normal">
+          <InputLabel htmlFor="destination">Destination</InputLabel>
+          <DestinationDropdown />
+        </FormControl>
         
-        <label htmlFor="date">Date:</label>
-        <input type="date" id="date" name="date" />
+        <TextField
+          id="date"
+          label="Date"
+          type="date"
+          InputLabelProps={{ shrink: true }}
+          fullWidth
+          margin="normal"
+        />
         
-        <button type="submit" className="redbus-button">Search</button>
+        <Button type="submit" variant="contained" color="primary" className="redbus-button">
+          Search
+        </Button>
       </form>
     </div>
   );
