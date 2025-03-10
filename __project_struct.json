@@ -88,6 +88,23 @@
       ],
       "directories": {}
     },
+    "src": {
+      "files": [],
+      "directories": {
+        "pages": {
+          "files": [
+            "Homepage.js"
+          ],
+          "directories": {}
+        },
+        "utils": {
+          "files": [
+            "api.js"
+          ],
+          "directories": {}
+        }
+      }
+    },
     "views": {
       "files": [
         "error.jade",

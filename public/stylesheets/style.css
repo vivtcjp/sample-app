@@ -74,7 +74,7 @@ form input, form button {
 
 form button {
     background-color: var(--button-background);
-    color: var (--button-text);
+    color: var(--button-text);
     border: none;
     cursor: pointer;
 }
@@ -121,7 +121,7 @@ form button:hover {
     padding: 0.5rem;
     border: 1px solid var(--form-border);
     border-radius: 4px;
-    background-color: var(--form-background);
+    background-color: var (--form-background);
     color: var(--text-color);
     font-size: 1rem;
     margin-bottom: 1rem;

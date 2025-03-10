@@ -1,1 +1,40 @@
-import React, { useState } from 'react';\nimport axios from 'axios';\n\nconst Homepage = () => {\n  const [origin, setOrigin] = useState('');\n  const [destination, setDestination] = useState('');\n  const [weekday, setWeekday] = useState('');\n\n  const handleSearch = async () => {\n    try {\n      const response = await axios.get(`/search?origin=${origin}&destination=${destination}&weekday=${weekday}`);\n      console.log(response.data);\n    } catch (error) {\n      console.error('Error fetching bus routes:', error);\n    }\n  };\n\n  return (\n    <div>\n      <h1>Search Bus Routes</h1>\n      <form>\n        <label>\n          Origin:\n          <input type=\"text\" value={origin} onChange={(e) => setOrigin(e.target.value)} />\n        </label>\n        <label>\n          Destination:\n          <input type=\"text\" value={destination} onChange={(e) => setDestination(e.target.value)} />\n        </label>\n        <label>\n          Weekday:\n          <input type=\"text\" value={weekday} onChange={(e) => setWeekday(e.target.value)} />\n        </label>\n        <button type=\"button\" onClick={handleSearch}>Search</button>\n      </form>\n    </div>\n  );\n};\n\nexport default Homepage;\n
+import React, { useState } from 'react';
+import { searchBusRoutes } from '../utils/api';
+
+const Homepage = () => {
+  const [origin, setOrigin] = useState('');
+  const [destination, setDestination] = useState('');
+  const [weekday, setWeekday] = useState('');
+
+  const handleSearch = async () => {
+    try {
+      const routes = await searchBusRoutes(origin, destination, weekday);
+      console.log(routes);
+    } catch (error) {
+      console.error('Error fetching bus routes:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Search Bus Routes</h1>
+      <form>
+        <label>
+          Origin:
+          <input type="text" value={origin} onChange={(e) => setOrigin(e.target.value)} />
+        </label>
+        <label>
+          Destination:
+          <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} />
+        </label>
+        <label>
+          Weekday:
+          <input type="text" value={weekday} onChange={(e) => setWeekday(e.target.value)} />
+        </label>
+        <button type="button" onClick={handleSearch} style={{ color: 'white' }}>Search</button>
+      </form>
+    </div>
+  );
+};
+
+export default Homepage;
