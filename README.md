@@ -67,3 +67,4 @@ STRIPE_SECRET_KEY=<your-stripe-secret-key>
 - Changed the search button color to green by updating the CSS variable in the style.css file.
 - Implemented Material Design standards for all UI elements by updating components and stylesheets.
 - Added dependencies for Material Design components in package.json.
+- Clicking on search calls the API in the backend to retrieve data from the 'bus-routes' collection, which contains data about buses running from source to destination, the weekday they are operating, and the cost of the trip.

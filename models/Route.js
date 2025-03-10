@@ -5,7 +5,9 @@ const routeSchema = new mongoose.Schema({
   destination: { type: String, required: true },
   departureTime: { type: Date, required: true },
   arrivalTime: { type: Date, required: true },
-  seatCapacity: { type: Number, required: true }
+  seatCapacity: { type: Number, required: true },
+  weekday: { type: String, required: true },
+  cost: { type: Number, required: true }
 });
 
 routeSchema.methods.reserveSeats = async function (seats) {

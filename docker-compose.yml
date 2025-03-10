@@ -5,6 +5,7 @@ services:
     ports:
       - "5454:5454"
     environment:
+      # Dont modify this env variable 
       - MONGO_URI=mongodb://mongo:27017/busbooking
     depends_on:
       - mongo
