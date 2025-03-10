@@ -74,7 +74,7 @@ form input, form button {
 
 form button {
     background-color: var(--button-background);
-    color: var(--button-text);
+    color: var (--button-text);
     border: none;
     cursor: pointer;
 }
@@ -111,6 +111,23 @@ form button:hover {
 }
 
 #origin-dropdown:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(98, 0, 238, 0.5); /* Material Design primary color shadow */
+}
+
+/* Styling for Destination Dropdown */
+#destination-dropdown {
+    padding: 0.5rem;
+    border: 1px solid var(--form-border);
+    border-radius: 4px;
+    background-color: var(--form-background);
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+#destination-dropdown:focus {
     border-color: var(--primary-color);
     outline: none;
     box-shadow: 0 0 5px rgba(98, 0, 238, 0.5); /* Material Design primary color shadow */

@@ -23,7 +23,7 @@ const DestinationDropdown = () => {
     <FormControl fullWidth margin="normal">
       <InputLabel htmlFor="destination">Destination</InputLabel>
       <Select
-        id="destination"
+        id="destination-dropdown"
         className="destination-dropdown"
         defaultValue=""
       >
