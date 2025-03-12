@@ -1,11 +1,14 @@
 extends layout
 
 block content
-  h1= title
+  h1= 'Autonomous Bus Booking App'
   form(action='/search', method='get')
     div
       label(for='origin') Origin
-      input(type='text', name='origin', id='origin')
+      select(name='origin', id='origin')
+        option(value='Location1') Location1
+        option(value='Location2') Location2
+        option(value='Location3') Location3
     div
       label(for='destination') Destination
       input(type='text', name='destination', id='destination')
