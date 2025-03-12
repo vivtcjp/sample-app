@@ -1,6 +1,4 @@
-# Sample App
-
-## Autonomous Bus Booking Application
+# Autonomous Bus Booking Application
 
 This application allows users to book autonomous bus rides by selecting the origin, destination, and date.
 
@@ -27,7 +25,7 @@ This application allows users to book autonomous bus rides by selecting the orig
 
 1. Build the Docker image:
    ```
-   docker build -t sample-app .
+   docker build -t autonomous-bus-booking-app .
    ```
 
 2. Run the application using Docker Compose:
