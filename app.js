@@ -15,8 +15,6 @@ var app = express();
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  user: process.env.DB_USER,
-  pass: process.env.DB_PASS
 }).then(() => {
   console.log('MongoDB connected');
 }).catch((err) => {

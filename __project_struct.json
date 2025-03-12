@@ -1,5 +1,7 @@
 {
   "files": [
+    ".env",
+    ".gitignore",
     "Dockerfile",
     "README.md",
     "app.js",
@@ -44,6 +46,10 @@
         "index.js",
         "users.js"
       ],
+      "directories": {}
+    },
+    "test": {
+      "files": [],
       "directories": {}
     },
     "views": {
