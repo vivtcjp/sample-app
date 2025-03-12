@@ -33,6 +33,18 @@ This application allows users to book autonomous bus rides by selecting the orig
    docker-compose up
    ```
 
+### Environment Variables
+
+Add the following variables to your .env file:
+
+```
+DB_HOST=localhost
+DB_PORT=27017
+DB_NAME=autonomous_bus_booking
+DB_USER=your_db_user
+DB_PASS=your_db_password
+```
+
 ### Changes Made
 
 - Redesigned landing page for autonomous bus booking application
@@ -45,3 +57,5 @@ This application allows users to book autonomous bus rides by selecting the orig
 - Updated title to 'Autonomous Bus Booking Application'
 - Created 'cities' API endpoint
 - Updated booking form to call 'cities' API
+- Added MongoDB connection setup
+- Added necessary environment variables to .env file
