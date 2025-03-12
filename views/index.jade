@@ -2,12 +2,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  select#source
-    option(value='') Select Source
-    each route in routes
-      option(value=route.source) #{route.source}
-  select#destination
-    option(value='') Select Destination
-    each route in routes
-      option(value=route.destination) #{route.destination}
+  form(action='/search', method='get')
+    div
+      label(for='origin') Origin
+      input(type='text', name='origin', id='origin')
+    div
+      label(for='destination') Destination
+      input(type='text', name='destination', id='destination')
+    div
+      label(for='date') Date
+      input(type='date', name='date', id='date')
+    div
+      button(type='submit') Search

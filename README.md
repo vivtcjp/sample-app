@@ -1,105 +1,34 @@
+# Sample App
 
-# Autonomous Bus Booking
+## Autonomous Bus Booking Application
 
-## Overview
+This application allows users to book autonomous bus rides by selecting the origin, destination, and date.
 
-A fully functional autonomous bus booking application.
+### Features
+- Choose origin and destination
+- Select date of travel
+- Search for available bus rides
 
-## Features
+### Setup
 
-- User authentication and authorization
-- Search for bus routes
-- Book seats on buses
-- View detailed bus schedules
-- Manage user profiles
-- Payment integration with Stripe
+1. Install dependencies:
+   ```
+   npm install
+   ```
 
-## Setup
+2. Start the application:
+   ```
+   npm start
+   ```
 
-1. Clone the repository:
+### Docker Setup
 
-```bash
-$ git clone <repository-url>
-```
+1. Build the Docker image:
+   ```
+   docker build -t sample-app .
+   ```
 
-2. Install dependencies:
-
-```bash
-$ npm install
-```
-
-3. Set up environment variables:
-
-Create a `.env` file in the root directory and add the following variables:
-
-```
-MONGO_URI=mongodb://localhost:27017/busbooking
-STRIPE_SECRET_KEY=<your-stripe-secret-key>
-JWT_SECRET=<your-jwt-secret>
-```
-
-4. Start the application:
-
-```bash
-$ npm start
-```
-
-## API Endpoints
-
-### Search Bus Routes
-
-```
-GET /search?origin=<origin>&destination=<destination>&weekday=<weekday>
-```
-
-Search for bus routes based on the origin, destination, and weekday.
-
-### View Detailed Schedule
-
-```
-GET /schedule/:id
-```
-
-View detailed schedule for a specific bus route.
-
-### Book a Seat
-
-```
-POST /book
-```
-
-Book a seat on a bus route.
-
-### Fetch Cities
-
-```
-GET /cities
-```
-
-Fetch all cities.
-
-### Fetch Destination Cities
-
-```
-GET /destination-cities
-```
-
-Fetch cities for the destination dropdown.
-
-## Docker Setup
-
-1. Build and run the Docker containers:
-
-```bash
-$ docker-compose up --build
-```
-
-2. Access the application at `http://localhost:5454`.
-
-## License
-
-This project is licensed under the ISC License.
-
-## New Feature: Search API for Bus Routes
-
-A new search API has been implemented to retrieve data from the 'bus-routes' collection. This collection contains information about buses running from a source to a destination, the weekday they operate, and the cost of the trip. The search API is called when the user clicks on the search button in the frontend.
+2. Run the application using Docker Compose:
+   ```
+   docker-compose up
+   ```

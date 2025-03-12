@@ -1,5 +1,5 @@
 # Use the official Node.js image as the base image
-FROM node:18
+FROM node:14
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -7,8 +7,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Dont remove for this project
-RUN npm set strict-ssl false
 # Install dependencies
 RUN npm install
 
@@ -16,8 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-ENV PORT=5454
-EXPOSE 5454
+EXPOSE 3000
 
 # Start the application
 CMD [ "npm", "start" ]

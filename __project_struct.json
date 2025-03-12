@@ -1,19 +1,12 @@
 {
   "files": [
-    ".dockerignore",
-    ".env",
-    ".gitignore",
-    "Dockerfile",
-    "README.md",
     "app.js",
-    "docker-compose.yml",
     "package-lock.json",
     "package.json"
   ],
   "directories": {
     ".idea": {
       "files": [
-        "vcs.xml",
         "workspace.xml"
       ],
       "directories": {}
@@ -24,50 +17,15 @@
       ],
       "directories": {}
     },
-    "components": {
-      "files": [
-        "Dashboard.js",
-        "DestinationDropdown.css",
-        "DestinationDropdown.js"
-      ],
-      "directories": {}
-    },
-    "controllers": {
-      "files": [
-        "cityController.js"
-      ],
-      "directories": {}
-    },
-    "middlewares": {
-      "files": [
-        "auth.js",
-        "validation.js"
-      ],
-      "directories": {}
-    },
-    "models": {
-      "files": [
-        "City.js",
-        "Route.js",
-        "User.js",
-        "booking.js",
-        "db.js"
-      ],
-      "directories": {}
-    },
     "public": {
-      "files": [
-        "index.html"
-      ],
+      "files": [],
       "directories": {
         "images": {
           "files": [],
           "directories": {}
         },
         "javascripts": {
-          "files": [
-            "main.js"
-          ],
+          "files": [],
           "directories": {}
         },
         "stylesheets": {
@@ -80,54 +38,10 @@
     },
     "routes": {
       "files": [
-        "admin.js",
-        "dashboard.js",
         "index.js",
-        "payment.js",
         "users.js"
       ],
       "directories": {}
-    },
-    "src": {
-      "files": [],
-      "directories": {
-        "api": {
-          "files": [
-            "api.js"
-          ],
-          "directories": {}
-        },
-        "components": {
-          "files": [
-            "Homepage.js"
-          ],
-          "directories": {}
-        },
-        "controllers": {
-          "files": [
-            "cityController.js"
-          ],
-          "directories": {}
-        },
-        "pages": {
-          "files": [
-            "Homepage.js"
-          ],
-          "directories": {}
-        },
-        "routes": {
-          "files": [
-            "index.js"
-          ],
-          "directories": {}
-        },
-        "utils": {
-          "files": [
-            "api.js"
-          ],
-          "directories": {}
-        }
-      }
     },
     "views": {
       "files": [
