@@ -42,3 +42,4 @@ This application allows users to book autonomous bus rides by selecting the orig
 - Updated index.jade, layout.jade, and style.css files
 - Added Bootstrap and jQuery dependencies
 - Updated Dockerfile and docker-compose.yml
+- Removed duplicate form from layout.jade
