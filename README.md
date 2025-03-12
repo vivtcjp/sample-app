@@ -3,7 +3,7 @@
 This application allows users to book autonomous bus rides by selecting the origin, destination, and date.
 
 ### Features
-- Choose origin and destination
+- Choose origin and destination from dropdown lists
 - Select date of travel
 - Search for available bus rides
 - Modern and intuitive user interface
@@ -41,3 +41,5 @@ This application allows users to book autonomous bus rides by selecting the orig
 - Added Bootstrap and jQuery dependencies
 - Updated Dockerfile and docker-compose.yml
 - Removed duplicate form from layout.jade
+- Changed origin and destination fields to dropdown lists
+- Updated title to 'Autonomous Bus Booking Application'
