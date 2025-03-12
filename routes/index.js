@@ -90,4 +90,16 @@ router.get('/cities', async (req, res) => {
   }
 });
 
+// New search API endpoint
+router.get('/search', async (req, res) => {
+  const { source, destination, date } = req.query;
+
+  try {
+    // For now, just return 200
+    res.status(200).json({ message: 'Search API called successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error in search API', error });
+  }
+});
+
 module.exports = router;
