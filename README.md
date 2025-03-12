@@ -1,1 +1,105 @@
-# Autonomous Bus Booking\n\n## Overview\n\nA fully functional autonomous bus booking application.\n\n## Features\n\n- User authentication and authorization\n- Search for bus routes\n- Book seats on buses\n- View detailed bus schedules\n- Manage user profiles\n- Payment integration with Stripe\n\n## Setup\n\n1. Clone the repository:\n\n```bash\n$ git clone <repository-url>\n```\n\n2. Install dependencies:\n\n```bash\n$ npm install\n```\n\n3. Set up environment variables:\n\nCreate a `.env` file in the root directory and add the following variables:\n\n```\nMONGO_URI=mongodb://localhost:27017/busbooking\nSTRIPE_SECRET_KEY=<your-stripe-secret-key>\nJWT_SECRET=<your-jwt-secret>\n```\n\n4. Start the application:\n\n```bash\n$ npm start\n```\n\n## API Endpoints\n\n### Search Bus Routes\n\n```\nGET /search?origin=<origin>&destination=<destination>&weekday=<weekday>\n```\n\nSearch for bus routes based on the origin, destination, and weekday.\n\n### View Detailed Schedule\n\n```\nGET /schedule/:id\n```\n\nView detailed schedule for a specific bus route.\n\n### Book a Seat\n\n```\nPOST /book\n```\n\nBook a seat on a bus route.\n\n### Fetch Cities\n\n```\nGET /cities\n```\n\nFetch all cities.\n\n### Fetch Destination Cities\n\n```\nGET /destination-cities\n```\n\nFetch cities for the destination dropdown.\n\n## Docker Setup\n\n1. Build and run the Docker containers:\n\n```bash\n$ docker-compose up --build\n```\n\n2. Access the application at `http://localhost:5454`.\n\n## License\n\nThis project is licensed under the ISC License.\n\n## New Feature: Search API for Bus Routes\n\nA new search API has been implemented to retrieve data from the 'bus-routes' collection. This collection contains information about buses running from a source to a destination, the weekday they operate, and the cost of the trip. The search API is called when the user clicks on the search button in the frontend.
+
+# Autonomous Bus Booking
+
+## Overview
+
+A fully functional autonomous bus booking application.
+
+## Features
+
+- User authentication and authorization
+- Search for bus routes
+- Book seats on buses
+- View detailed bus schedules
+- Manage user profiles
+- Payment integration with Stripe
+
+## Setup
+
+1. Clone the repository:
+
+```bash
+$ git clone <repository-url>
+```
+
+2. Install dependencies:
+
+```bash
+$ npm install
+```
+
+3. Set up environment variables:
+
+Create a `.env` file in the root directory and add the following variables:
+
+```
+MONGO_URI=mongodb://localhost:27017/busbooking
+STRIPE_SECRET_KEY=<your-stripe-secret-key>
+JWT_SECRET=<your-jwt-secret>
+```
+
+4. Start the application:
+
+```bash
+$ npm start
+```
+
+## API Endpoints
+
+### Search Bus Routes
+
+```
+GET /search?origin=<origin>&destination=<destination>&weekday=<weekday>
+```
+
+Search for bus routes based on the origin, destination, and weekday.
+
+### View Detailed Schedule
+
+```
+GET /schedule/:id
+```
+
+View detailed schedule for a specific bus route.
+
+### Book a Seat
+
+```
+POST /book
+```
+
+Book a seat on a bus route.
+
+### Fetch Cities
+
+```
+GET /cities
+```
+
+Fetch all cities.
+
+### Fetch Destination Cities
+
+```
+GET /destination-cities
+```
+
+Fetch cities for the destination dropdown.
+
+## Docker Setup
+
+1. Build and run the Docker containers:
+
+```bash
+$ docker-compose up --build
+```
+
+2. Access the application at `http://localhost:5454`.
+
+## License
+
+This project is licensed under the ISC License.
+
+## New Feature: Search API for Bus Routes
+
+A new search API has been implemented to retrieve data from the 'bus-routes' collection. This collection contains information about buses running from a source to a destination, the weekday they operate, and the cost of the trip. The search API is called when the user clicks on the search button in the frontend.
