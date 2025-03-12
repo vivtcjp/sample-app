@@ -1,6 +1,9 @@
 {
   "files": [
+    "Dockerfile",
+    "README.md",
     "app.js",
+    "docker-compose.yml",
     "package-lock.json",
     "package.json"
   ],
