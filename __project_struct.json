@@ -91,9 +91,33 @@
     "src": {
       "files": [],
       "directories": {
+        "api": {
+          "files": [
+            "api.js"
+          ],
+          "directories": {}
+        },
+        "components": {
+          "files": [
+            "Homepage.js"
+          ],
+          "directories": {}
+        },
+        "controllers": {
+          "files": [
+            "cityController.js"
+          ],
+          "directories": {}
+        },
         "pages": {
           "files": [
             "Homepage.js"
+          ],
+          "directories": {}
+        },
+        "routes": {
+          "files": [
+            "index.js"
           ],
           "directories": {}
         },
