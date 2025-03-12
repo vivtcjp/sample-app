@@ -43,3 +43,5 @@ This application allows users to book autonomous bus rides by selecting the orig
 - Removed duplicate form from layout.jade
 - Changed origin and destination fields to dropdown lists
 - Updated title to 'Autonomous Bus Booking Application'
+- Created 'cities' API endpoint
+- Updated booking form to call 'cities' API
