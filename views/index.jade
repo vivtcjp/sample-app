@@ -2,19 +2,27 @@ extends layout
 
 block content
   h1= 'Autonomous Bus Booking App'
+  script.
+    document.addEventListener('DOMContentLoaded', async function() {
+      const response = await fetch('/cities');
+      const cities = await response.json();
+      const originSelect = document.getElementById('origin');
+      const destinationSelect = document.getElementById('destination');
+      cities.forEach(city => {
+        const option = document.createElement('option');
+        option.value = city.name;
+        option.textContent = city.name;
+        originSelect.appendChild(option);
+        destinationSelect.appendChild(option.cloneNode(true));
+      });
+    });
   form(action='/cities', method='get')
     div
       label(for='origin') Origin
       select(name='origin', id='origin')
-        option(value='Location1') Location1
-        option(value='Location2') Location2
-        option(value='Location3') Location3
     div
       label(for='destination') Destination
       select(name='destination', id='destination')
-        option(value='Location1') Location1
-        option(value='Location2') Location2
-        option(value='Location3') Location3
     div
       label(for='date') Date
       input(type='date', name='date', id='date')

@@ -49,7 +49,9 @@
       "directories": {}
     },
     "test": {
-      "files": [],
+      "files": [
+        "cities.test.js"
+      ],
       "directories": {}
     },
     "views": {
