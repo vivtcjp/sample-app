@@ -72,7 +72,8 @@
       "files": [
         "error.jade",
         "index.jade",
-        "layout.jade"
+        "layout.jade",
+        "results.jade"
       ],
       "directories": {}
     }
