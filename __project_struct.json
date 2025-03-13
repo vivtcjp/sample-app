@@ -55,9 +55,7 @@
           "files": [],
           "directories": {
             "javascripts": {
-              "files": [
-                "script.js"
-              ],
+              "files": [],
               "directories": {}
             }
           }

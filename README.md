@@ -27,7 +27,7 @@ This application allows users to book autonomous bus rides. It includes features
 
 ## Usage
 
-- Click the search button to call the search API and view available rides.
+- Fill in the form with origin, destination, and date, and click the search button to call the search API and view available rides.
 
 ## Docker
 

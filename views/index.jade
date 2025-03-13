@@ -16,7 +16,7 @@ block content
         destinationSelect.appendChild(option.cloneNode(true));
       });
     });
-  form(action='/cities', method='get')
+  form(action='/search', method='get')
     div
       label(for='origin') Origin
       select(name='origin', id='origin')
@@ -38,3 +38,13 @@ block content
       p Our autonomous buses ensure a safe and comfortable journey.
     div
       p Book your ride now and experience the future of transportation.
+  script.
+    document.querySelector('form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const origin = document.getElementById('origin').value;
+      const destination = document.getElementById('destination').value;
+      const date = document.getElementById('date').value;
+      const response = await fetch(`/search?origin=${origin}&destination=${destination}&date=${date}`);
+      const result = await response.json();
+      console.log(result);
+    });
