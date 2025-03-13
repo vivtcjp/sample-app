@@ -49,6 +49,29 @@ The response will be a JSON array containing information about buses running on 
 - Node-fetch
 - Date-fns
 
+## Sample JSON File for Bus Routes
+
+A sample JSON file named 'bus-routes.json' has been created to provide information about various bus routes, including route numbers, starting points, destinations, and timings.
+
+```json
+{
+  "routes": [
+    {
+      "routeNumber": "1",
+      "startPoint": "A",
+      "destination": "B",
+      "timings": "6:00 AM - 10:00 PM"
+    },
+    {
+      "routeNumber": "2",
+      "startPoint": "C",
+      "destination": "D",
+      "timings": "7:00 AM - 9:00 PM"
+    }
+  ]
+}
+```
+
 ## License
 
 This project is licensed under the MIT License.

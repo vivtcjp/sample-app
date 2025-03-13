@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "routeNumber": "1",
+      "startPoint": "A",
+      "destination": "B",
+      "timings": "6:00 AM - 10:00 PM"
+    },
+    {
+      "routeNumber": "2",
+      "startPoint": "C",
+      "destination": "D",
+      "timings": "7:00 AM - 9:00 PM"
+    }
+  ]
+}
