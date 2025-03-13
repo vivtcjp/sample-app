@@ -21,6 +21,7 @@ router.get('/cities', async function(req, res, next) {
 router.get('/search', function(req, res, next) {
   const { origin, destination, date } = req.query;
   res.status(200).json({ origin, destination, date });
+  res.redirect('/results'); // Navigate to results page after successful search
 });
 
 /* GET results page. */
