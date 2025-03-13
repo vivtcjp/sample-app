@@ -1,17 +1,15 @@
-version: '3'
+version: '3.8'
 services:
   app:
     build: .
     ports:
-      - '3000:3000'
-    volumes:
-      - .:/usr/src/app
-    environment:
-      NODE_ENV: development
-  mongodb:
-    image: mongo
+      - "3000:3000"
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
     ports:
-      - '27017:27017'
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
 volumes:
