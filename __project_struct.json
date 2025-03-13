@@ -2,6 +2,7 @@
   "files": [
     ".env",
     ".gitignore",
+    ".npmrc",
     "Dockerfile",
     "README.md",
     "app.js",
@@ -30,7 +31,9 @@
           "directories": {}
         },
         "javascripts": {
-          "files": [],
+          "files": [
+            "script.js"
+          ],
           "directories": {}
         },
         "stylesheets": {
@@ -47,20 +50,6 @@
         "users.js"
       ],
       "directories": {}
-    },
-    "src": {
-      "files": [],
-      "directories": {
-        "public": {
-          "files": [],
-          "directories": {
-            "javascripts": {
-              "files": [],
-              "directories": {}
-            }
-          }
-        }
-      }
     },
     "test": {
       "files": [

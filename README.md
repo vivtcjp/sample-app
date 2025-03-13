@@ -1,46 +1,68 @@
 # Autonomous Bus Booking Application
 
-## Description
+This application allows users to book autonomous bus rides. It includes the following features:
 
-This application allows users to book autonomous bus rides. It includes features such as searching for available rides, viewing cities, and booking rides.
+- **Cities API**: Retrieve a list of cities.
+- **Search API**: Search for bus rides based on origin, destination, and date.
+- **Results Page**: Display search results.
 
-## Features
+## Getting Started
 
-- Search for available rides
-- View cities
-- Book rides
+### Prerequisites
 
-## Installation
+- Node.js
+- Docker
+- Docker Compose
+
+### Installation
 
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Install dependencies:
-   ```
-   npm install
-   ```
-3. Start the application:
-   ```
-   npm start
-   ```
 
-## Usage
+```bash
+$ git clone <repository-url>
+```
 
-- Fill in the form with origin, destination, and date, and click the search button to call the search API and view available rides.
+2. Navigate to the project directory:
 
-## Docker
+```bash
+$ cd autonomous-bus-booking
+```
 
-To run the application using Docker:
+3. Install dependencies:
 
-1. Build the Docker image:
-   ```
-   docker-compose build
-   ```
-2. Start the application and MongoDB services:
-   ```
-   docker-compose up
-   ```
+```bash
+$ npm install
+```
+
+### Running the Application
+
+#### Using Node.js
+
+```bash
+$ npm start
+```
+
+#### Using Docker Compose
+
+```bash
+$ docker-compose up --build
+```
+
+### Usage
+
+1. Open your browser and navigate to `http://localhost:3000`.
+2. Use the form to search for bus rides by selecting origin, destination, and date.
+3. Click the search button to view the results on the results page.
+4. The application will now wait for the search API response before navigating to the results page.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a new Pull Request.
 
 ## License
 
