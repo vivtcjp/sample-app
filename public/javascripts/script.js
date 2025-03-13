@@ -12,11 +12,38 @@ document.addEventListener('DOMContentLoaded', function() {
           const result = await response.json();
           const searchResultsDiv = document.getElementById('search-results');
           searchResultsDiv.innerHTML = '';
-          result.forEach(bus => {
-            const busDiv = document.createElement('div');
-            busDiv.textContent = `Bus from ${bus.origin} to ${bus.destination} on ${bus.date}`;
-            searchResultsDiv.appendChild(busDiv);
+          const table = document.createElement('table');
+          table.classList.add('material-table');
+          const thead = document.createElement('thead');
+          const headerRow = document.createElement('tr');
+          ['Origin', 'Destination', 'Cost', 'Travel Time', 'Book'].forEach(text => {
+            const th = document.createElement('th');
+            th.textContent = text;
+            headerRow.appendChild(th);
           });
+          thead.appendChild(headerRow);
+          table.appendChild(thead);
+          const tbody = document.createElement('tbody');
+          result.forEach(bus => {
+            const row = document.createElement('tr');
+            ['origin', 'destination', 'cost', 'travelTime'].forEach(key => {
+              const td = document.createElement('td');
+              td.textContent = bus[key];
+              row.appendChild(td);
+            });
+            const bookTd = document.createElement('td');
+            const bookButton = document.createElement('button');
+            bookButton.textContent = 'Book';
+            bookButton.addEventListener('click', function() {
+              // Handle booking logic here
+              alert(`Booking bus from ${bus.origin} to ${bus.destination}`);
+            });
+            bookTd.appendChild(bookButton);
+            row.appendChild(bookTd);
+            tbody.appendChild(row);
+          });
+          table.appendChild(tbody);
+          searchResultsDiv.appendChild(table);
         } else {
           alert('Search failed. Please try again.');
         }

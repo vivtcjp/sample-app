@@ -26,7 +26,8 @@ The response will be a JSON array containing information about buses running on 
     "busId": "<bus_id>",
     "origin": "<origin_city>",
     "destination": "<destination_city>",
-    "cost": "<cost_of_travel>"
+    "cost": "<cost_of_travel>",
+    "travelTime": "<travel_time>"
   }
 ]
 ```
@@ -82,3 +83,32 @@ This project is licensed under the MIT License.
 ## Material Design Updates
 
 The origin and destination dropdowns have been updated to follow Material Design guidelines, providing enhanced visuals, animations, and responsiveness.
+
+## New Feature: Material Design Table for Search Results
+
+The search results are now displayed in a Material Design table format. The table includes columns for origin, destination, cost, travel time, and an option button to book the ticket. The table provides a more structured and visually appealing way to present the search results.
+
+### Example Table Structure
+
+```html
+<table class="material-table">
+  <thead>
+    <tr>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Cost</th>
+      <th>Travel Time</th>
+      <th>Book</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>City A</td>
+      <td>City B</td>
+      <td>$10</td>
+      <td>2 hours</td>
+      <td><button>Book</button></td>
+    </tr>
+  </tbody>
+</table>
+```
