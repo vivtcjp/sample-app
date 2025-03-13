@@ -51,3 +51,26 @@ p {
   font-size: 16px;
   color: #333;
 }
+
+/* Material Design styles for dropdowns */
+select {
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+select:focus {
+  border-color: #00B7FF;
+  box-shadow: 0 2px 10px rgba(0, 183, 255, 0.3);
+}
+
+select option {
+  padding: 10px;
+}

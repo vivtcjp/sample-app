@@ -6,6 +6,7 @@
     "Dockerfile",
     "README.md",
     "app.js",
+    "bus-routes.json",
     "docker-compose.yml",
     "package-lock.json",
     "package.json"

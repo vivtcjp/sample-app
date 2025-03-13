@@ -48,6 +48,9 @@ The response will be a JSON array containing information about buses running on 
 - Mongoose
 - Node-fetch
 - Date-fns
+- @material-ui/core
+- @material-ui/icons
+- @material-ui/lab
 
 ## Sample JSON File for Bus Routes
 
@@ -75,3 +78,7 @@ A sample JSON file named 'bus-routes.json' has been created to provide informati
 ## License
 
 This project is licensed under the MIT License.
+
+## Material Design Updates
+
+The origin and destination dropdowns have been updated to follow Material Design guidelines, providing enhanced visuals, animations, and responsiveness.

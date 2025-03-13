@@ -42,10 +42,5 @@ router.get('/search', async function(req, res, next) {
   }
 });
 
-/* GET results page. */
-router.get('/results', function(req, res, next) {
-  const { origin, destination, date } = req.query;
-  res.render('results', { title: 'Results', origin, destination, date });
-});
 
 module.exports = router;

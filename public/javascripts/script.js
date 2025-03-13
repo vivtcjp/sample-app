@@ -27,4 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('All fields are mandatory');
     }
   });
+
+  // Material Design enhancements for dropdowns
+  const dropdowns = document.querySelectorAll('select');
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('focus', function() {
+      this.parentElement.classList.add('focused');
+    });
+    dropdown.addEventListener('blur', function() {
+      this.parentElement.classList.remove('focused');
+    });
+  });
 });
