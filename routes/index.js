@@ -47,4 +47,15 @@ router.get('/booking', function(req, res, next) {
   res.render('booking', { title: 'Booking Page' });
 });
 
+/* POST confirm booking */
+router.post('/confirm-booking', async function(req, res, next) {
+  const bookingData = req.body;
+  try {
+    const result = await mongoose.connection.db.collection('bookings').insertOne(bookingData);
+    res.status(201).json({ message: 'Booking confirmed', bookingId: result.insertedId });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to confirm booking' });
+  }
+});
+
 module.exports = router;

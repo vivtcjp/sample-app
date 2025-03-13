@@ -17,3 +17,27 @@ block content
       span(class='mdc-line-ripple')
     div
       button(type='submit') Confirm Booking
+    script.
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = {};
+        formData.forEach((value, key) => { data[key] = value });
+        fetch('/confirm-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.bookingId) {
+            alert('Booking confirmed!');
+          } else {
+            alert('Failed to confirm booking.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        });
+      });

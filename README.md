@@ -131,3 +131,28 @@ The email and phone input fields on the booking page have been updated to follow
   <span class="mdc-line-ripple"></span>
 </div>
 ```
+
+## New Feature: Confirm Booking
+
+A new feature has been added to allow users to confirm their booking. When the 'Confirm Booking' button is clicked, an entry is added to the bookings collection.
+
+### Endpoint
+
+`POST /confirm-booking`
+
+### Request Body
+
+- `name`: The name of the user.
+- `email`: The email of the user.
+- `phone`: The phone number of the user.
+
+### Response
+
+The response will be a JSON object containing a message and the booking ID.
+
+```json
+{
+  "message": "Booking confirmed",
+  "bookingId": "<booking_id>"
+}
+```
