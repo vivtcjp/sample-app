@@ -48,6 +48,22 @@
       ],
       "directories": {}
     },
+    "src": {
+      "files": [],
+      "directories": {
+        "public": {
+          "files": [],
+          "directories": {
+            "javascripts": {
+              "files": [
+                "script.js"
+              ],
+              "directories": {}
+            }
+          }
+        }
+      }
+    },
     "test": {
       "files": [
         "cities.test.js"
