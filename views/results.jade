@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1 Results
-  // Add more content here to display search results
+  if origin && destination && date
+    p Origin: #{origin}
+    p Destination: #{destination}
+    p Date: #{date}
+  else
+    p No search results to display

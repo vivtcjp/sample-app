@@ -26,7 +26,8 @@ router.get('/search', function(req, res, next) {
 
 /* GET results page. */
 router.get('/results', function(req, res, next) {
-  res.render('results', { title: 'Results' });
+  const { origin, destination, date } = req.query;
+  res.render('results', { title: 'Results', origin, destination, date });
 });
 
 module.exports = router;
