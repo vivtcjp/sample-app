@@ -23,4 +23,9 @@ router.get('/search', function(req, res, next) {
   res.status(200).json({ origin, destination, date });
 });
 
+/* GET results page. */
+router.get('/results', function(req, res, next) {
+  res.render('results', { title: 'Results' });
+});
+
 module.exports = router;
