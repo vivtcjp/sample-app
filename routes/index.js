@@ -18,10 +18,28 @@ router.get('/cities', async function(req, res, next) {
 });
 
 /* GET search API. */
-router.get('/search', function(req, res, next) {
+router.get('/search', async function(req, res, next) {
   const { origin, destination, date } = req.query;
-  res.status(200).json({ origin, destination, date });
-  res.redirect('/results'); // Navigate to results page after successful search
+  const dayOfWeek = new Date(date).toLocaleString('en-us', { weekday: 'short' }).toUpperCase();
+
+  try {
+    const buses = await mongoose.connection.db.collection('bus-routes').find({
+      origin,
+      destination,
+      day: dayOfWeek
+    }).toArray();
+
+    const results = buses.map(bus => ({
+      busId: bus._id,
+      origin: bus.origin,
+      destination: bus.destination,
+      cost: bus.cost
+    }));
+
+    res.status(200).json(results);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve bus routes' });
+  }
 });
 
 /* GET results page. */
