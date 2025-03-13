@@ -53,7 +53,7 @@ $ docker-compose up --build
 1. Open your browser and navigate to `http://localhost:3000`.
 2. Use the form to search for bus rides by selecting origin, destination, and date.
 3. Click the search button to view the results on the results page.
-4. The application will now wait for the search API response before navigating to the results page.
+4. The application will now display search results below the form.
 
 ## Contributing
 

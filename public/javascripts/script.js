@@ -8,8 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (origin && destination && date) {
       try {
         const response = await fetch(`/search?origin=${origin}&destination=${destination}&date=${date}`);
-        if (response.status === 200) {
-          window.location.href = `/results?origin=${origin}&destination=${destination}&date=${date}`;
+        if (response.ok) {
+          const result = await response.json();
+          const searchResultsDiv = document.getElementById('search-results');
+          searchResultsDiv.innerHTML = '';
+          result.forEach(bus => {
+            const busDiv = document.createElement('div');
+            busDiv.textContent = `Bus from ${bus.origin} to ${bus.destination} on ${bus.date}`;
+            searchResultsDiv.appendChild(busDiv);
+          });
         } else {
           alert('Search failed. Please try again.');
         }
