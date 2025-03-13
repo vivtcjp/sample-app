@@ -42,5 +42,9 @@ router.get('/search', async function(req, res, next) {
   }
 });
 
+/* GET booking page. */
+router.get('/booking', function(req, res, next) {
+  res.render('booking', { title: 'Booking Page' });
+});
 
 module.exports = router;

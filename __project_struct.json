@@ -60,6 +60,7 @@
     },
     "views": {
       "files": [
+        "booking.jade",
         "error.jade",
         "index.jade",
         "layout.jade"

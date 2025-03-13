@@ -78,8 +78,7 @@ block content
             const bookButton = document.createElement('button');
             bookButton.textContent = 'Book';
             bookButton.addEventListener('click', function() {
-              // Handle booking logic here
-              alert(`Booking bus from ${bus.origin} to ${bus.destination}`);
+              window.location.href = '/booking';
             });
             bookTd.appendChild(bookButton);
             row.appendChild(bookTd);

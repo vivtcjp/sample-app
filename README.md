@@ -112,3 +112,22 @@ The search results are now displayed in a Material Design table format. The tabl
   </tbody>
 </table>
 ```
+
+## Material Design Theme for Booking Page
+
+The email and phone input fields on the booking page have been updated to follow Material Design guidelines. This provides enhanced visuals, animations, and responsiveness for a better user experience.
+
+### Example Input Fields
+
+```html
+<div class="mdc-text-field">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" class="mdc-text-field__input">
+  <span class="mdc-line-ripple"></span>
+</div>
+<div class="mdc-text-field">
+  <label for="phone">Phone</label>
+  <input type="tel" name="phone" id="phone" class="mdc-text-field__input">
+  <span class="mdc-line-ripple"></span>
+</div>
+```

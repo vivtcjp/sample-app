@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= 'Booking Page'
+  p Welcome to the booking page. Please fill in your details to book your ride.
+  form(action='/confirm-booking', method='post')
+    div
+      label(for='name') Name
+      input(type='text', name='name', id='name')
+    div(class='mdc-text-field')
+      label(for='email') Email
+      input(type='email', name='email', id='email', class='mdc-text-field__input')
+      span(class='mdc-line-ripple')
+    div(class='mdc-text-field')
+      label(for='phone') Phone
+      input(type='tel', name='phone', id='phone', class='mdc-text-field__input')
+      span(class='mdc-line-ripple')
+    div
+      button(type='submit') Confirm Booking
