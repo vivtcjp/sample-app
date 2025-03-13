@@ -17,4 +17,10 @@ router.get('/cities', async function(req, res, next) {
   }
 });
 
+/* GET search API. */
+router.get('/search', function(req, res, next) {
+  const { origin, destination, date } = req.query;
+  res.status(200).json({ origin, destination, date });
+});
+
 module.exports = router;

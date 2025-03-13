@@ -59,3 +59,13 @@ DB_PASS=your_db_password
 - Updated booking form to call 'cities' API
 - Added MongoDB connection setup
 - Added necessary environment variables to .env file
+
+### New Search API Endpoint
+
+- **Endpoint**: `/search`
+- **Method**: GET
+- **Parameters**:
+  - `origin`: The origin location
+  - `destination`: The destination location
+  - `date`: The date of travel
+- **Response**: Returns a status code 200 with the provided parameters in the response body
