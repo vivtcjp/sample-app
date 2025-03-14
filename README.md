@@ -155,3 +155,17 @@ The response will be a JSON object containing a message and the booking ID.
   "message": "Booking confirmed",
   "bookingId": "<booking_id>"
 }
+```
+
+## New Feature: Asterisk (*) for Mandatory Fields
+
+All mandatory fields in forms are now indicated with an asterisk (*) next to the field label. This ensures that users are aware of the required fields when filling out forms.
+
+### Example Form Field
+
+```html
+<div>
+  <label for="name">Name *</label>
+  <input type="text" name="name" id="name">
+</div>
+```

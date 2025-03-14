@@ -107,3 +107,9 @@ select option {
 .material-table button:hover {
   background-color: #0094cc;
 }
+
+/* Styles for asterisk (*) next to mandatory fields */
+label::after {
+  content: ' *';
+  color: red;
+}
