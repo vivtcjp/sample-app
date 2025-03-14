@@ -174,7 +174,7 @@ All mandatory fields in forms are now indicated with an asterisk (*) next to the
 
 ## New Feature: Bus Seat Layout View
 
-A new feature has been added to the booking page that displays a top view of a bus with a seat layout. The layout allows users to select and book preferred seats. The bus has 20 rows and 2 columns with 2 seats together in each column, totaling 40 seats.
+A new feature has been added to the booking page that displays a top view of a bus with a seat layout. The layout allows users to select and book preferred seats. The bus has 10 rows with 4 seats per row, totaling 40 seats.
 
 ### Example Bus Seat Layout
 
@@ -182,25 +182,19 @@ A new feature has been added to the booking page that displays a top view of a b
 <div id="bus-layout"></div>
 <script>
   const busLayout = document.getElementById('bus-layout');
-  const rows = 20;
-  const columns = 2;
-  const seatsPerColumn = 2;
+  const rows = 10;
+  const seatsPerRow = 4;
   for (let i = 0; i < rows; i++) {
     const rowDiv = document.createElement('div');
     rowDiv.className = 'row';
-    for (let j = 0; j < columns; j++) {
-      const columnDiv = document.createElement('div');
-      columnDiv.className = 'column';
-      for (let k = 0; k < seatsPerColumn; k++) {
-        const seatDiv = document.createElement('div');
-        seatDiv.className = 'seat';
-        seatDiv.innerText = `Row ${i + 1} Seat ${j * seatsPerColumn + k + 1}`;
-        seatDiv.addEventListener('click', () => {
-          seatDiv.classList.toggle('selected');
-        });
-        columnDiv.appendChild(seatDiv);
-      }
-      rowDiv.appendChild(columnDiv);
+    for (let j = 0; j < seatsPerRow; j++) {
+      const seatDiv = document.createElement('div');
+      seatDiv.className = 'seat';
+      seatDiv.innerText = `Row ${i + 1} Seat ${j + 1}`;
+      seatDiv.addEventListener('click', () => {
+        seatDiv.classList.toggle('selected');
+      });
+      rowDiv.appendChild(seatDiv);
     }
     busLayout.appendChild(rowDiv);
   }
@@ -209,11 +203,6 @@ A new feature has been added to the booking page that displays a top view of a b
   .row {
     display: flex;
     margin-bottom: 10px;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
   }
   .seat {
     width: 50px;
