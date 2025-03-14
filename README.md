@@ -219,3 +219,54 @@ A new feature has been added to the booking page that displays a top view of a b
   }
 </style>
 ```
+
+## New Feature: Horizontal Seat Layout
+
+The seat selection area has been updated to display seats horizontally, making it look like a bus layout. The seats are arranged in rows and can be selected by clicking on them.
+
+### Example Horizontal Seat Layout
+
+```html
+<div class="seat-selection">
+  <div class="seat">1</div>
+  <div class="seat">2</div>
+  <div class="seat">3</div>
+  <div class="seat">4</div>
+</div>
+<script>
+  const seatSelection = document.querySelector('.seat-selection');
+  if (seatSelection) {
+    seatSelection.style.flexDirection = 'row';
+    const seats = seatSelection.querySelectorAll('.seat');
+    seats.forEach(seat => {
+      seat.addEventListener('click', function() {
+        this.classList.toggle('selected');
+      });
+    });
+  }
+</script>
+<style>
+  .seat-selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .seat-selection .seat {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .seat-selection .seat.selected {
+    background-color: #FF0000;
+    color: white;
+  }
+</style>
+```

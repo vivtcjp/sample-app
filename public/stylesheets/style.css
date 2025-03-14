@@ -113,3 +113,27 @@ label::after {
   content: ' *';
   color: red;
 }
+
+/* New styles for horizontal seat layout */
+.seat-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+}
+.seat-selection .seat {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.seat-selection .seat.selected {
+  background-color: #FF0000; /* Changed to red */
+  color: white;
+}

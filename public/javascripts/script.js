@@ -65,4 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
       this.parentElement.classList.remove('focused');
     });
   });
+
+  // New logic for horizontal seat layout
+  const seatSelection = document.querySelector('.seat-selection');
+  if (seatSelection) {
+    seatSelection.style.flexDirection = 'row';
+    const seats = seatSelection.querySelectorAll('.seat');
+    seats.forEach(seat => {
+      seat.addEventListener('click', function() {
+        this.classList.toggle('selected');
+      });
+    });
+  }
 });
