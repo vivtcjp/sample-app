@@ -6,6 +6,11 @@ services:
       - "9090:3000"
     depends_on:
       - mongo
+    # Update env only when required
+    environment:
+      - DB_HOST=mongo
+      - DB_PORT=27017
+      - DB_NAME=busbooking
   mongo:
     image: mongo
     ports:
