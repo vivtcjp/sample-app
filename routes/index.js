@@ -49,7 +49,7 @@ router.get('/booking', function(req, res, next) {
 
 /* POST confirm booking */
 router.post('/confirm-booking', async function(req, res, next) {
-  const bookingData = req.body;
+  let bookingData = req.body;
   try {
     const result = await mongoose.connection.db.collection('bookings').insertOne(bookingData);
     res.status(201).json({ message: 'Booking confirmed', bookingId: result.insertedId });
