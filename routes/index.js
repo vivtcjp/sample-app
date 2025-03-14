@@ -50,6 +50,7 @@ router.get('/booking', function(req, res, next) {
 /* POST confirm booking */
 router.post('/confirm-booking', async function(req, res, next) {
   let bookingData = req.body;
+  bookingData._id = new mongoose.Types.ObjectId(); // Generate MongoDB _id
   try {
     const result = await mongoose.connection.db.collection('bookings').insertOne(bookingData);
     res.status(201).json({ message: 'Booking confirmed', bookingId: result.insertedId });

@@ -155,4 +155,3 @@ The response will be a JSON object containing a message and the booking ID.
   "message": "Booking confirmed",
   "bookingId": "<booking_id>"
 }
-```
