@@ -1,9 +1,11 @@
 {
   "files": [
+    ".dockerignore",
     ".env",
     ".gitignore",
     ".npmrc",
     "Dockerfile",
+    "README.Docker.md",
     "README.md",
     "app.js",
     "bus-routes.json",
