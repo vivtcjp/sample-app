@@ -54,10 +54,11 @@ The response will be a JSON array containing information about buses running on 
 - @material-ui/lab
 - React
 - React-dom
+- Axios
 
 ## Sample JSON File for Bus Routes
 
-A sample JSON file named 'bus-routes.json' has been created to provide information about various bus routes, including route numbers, starting points, destinations, and timings.
+A sample JSON file named 'bus-routes.json' has been created to provide information about various bus routes, including route numbers, starting points, destinations, timings, and seat numbers.
 
 ```json
 {
@@ -66,13 +67,15 @@ A sample JSON file named 'bus-routes.json' has been created to provide informati
       "routeNumber": "1",
       "startPoint": "A",
       "destination": "B",
-      "timings": "6:00 AM - 10:00 PM"
+      "timings": "6:00 AM - 10:00 PM",
+      "seatNumbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
     },
     {
       "routeNumber": "2",
       "startPoint": "C",
       "destination": "D",
-      "timings": "7:00 AM - 9:00 PM"
+      "timings": "7:00 AM - 9:00 PM",
+      "seatNumbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
     }
   ]
 }
