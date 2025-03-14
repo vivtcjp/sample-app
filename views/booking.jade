@@ -17,7 +17,33 @@ block content
       span(class='mdc-line-ripple')
     div
       button(type='submit') Confirm Booking
+    div
+      h2 Bus Seat Layout
+      div(id='bus-layout')
     script.
+      const busLayout = document.getElementById('bus-layout');
+      const rows = 20;
+      const columns = 2;
+      const seatsPerColumn = 2;
+      for (let i = 0; i < rows; i++) {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'row';
+        for (let j = 0; j < columns; j++) {
+          const columnDiv = document.createElement('div');
+          columnDiv.className = 'column';
+          for (let k = 0; k < seatsPerColumn; k++) {
+            const seatDiv = document.createElement('div');
+            seatDiv.className = 'seat';
+            seatDiv.innerText = `Row ${i + 1} Seat ${j * seatsPerColumn + k + 1}`;
+            seatDiv.addEventListener('click', () => {
+              seatDiv.classList.toggle('selected');
+            });
+            columnDiv.appendChild(seatDiv);
+          }
+          rowDiv.appendChild(columnDiv);
+        }
+        busLayout.appendChild(rowDiv);
+      }
       document.querySelector('form').addEventListener('submit', function(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -41,3 +67,26 @@ block content
           alert('An error occurred. Please try again.');
         });
       });
+    style.
+      .row {
+        display: flex;
+        margin-bottom: 10px;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        margin-right: 10px;
+      }
+      .seat {
+        width: 50px;
+        height: 50px;
+        background-color: #ccc;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .seat.selected {
+        background-color: #6c6;
+      }

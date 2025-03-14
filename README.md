@@ -52,6 +52,8 @@ The response will be a JSON array containing information about buses running on 
 - @material-ui/core
 - @material-ui/icons
 - @material-ui/lab
+- React
+- React-dom
 
 ## Sample JSON File for Bus Routes
 
@@ -168,4 +170,63 @@ All mandatory fields in forms are now indicated with an asterisk (*) next to the
   <label for="name">Name *</label>
   <input type="text" name="name" id="name">
 </div>
+```
+
+## New Feature: Bus Seat Layout View
+
+A new feature has been added to the booking page that displays a top view of a bus with a seat layout. The layout allows users to select and book preferred seats. The bus has 20 rows and 2 columns with 2 seats together in each column, totaling 40 seats.
+
+### Example Bus Seat Layout
+
+```html
+<div id="bus-layout"></div>
+<script>
+  const busLayout = document.getElementById('bus-layout');
+  const rows = 20;
+  const columns = 2;
+  const seatsPerColumn = 2;
+  for (let i = 0; i < rows; i++) {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'row';
+    for (let j = 0; j < columns; j++) {
+      const columnDiv = document.createElement('div');
+      columnDiv.className = 'column';
+      for (let k = 0; k < seatsPerColumn; k++) {
+        const seatDiv = document.createElement('div');
+        seatDiv.className = 'seat';
+        seatDiv.innerText = `Row ${i + 1} Seat ${j * seatsPerColumn + k + 1}`;
+        seatDiv.addEventListener('click', () => {
+          seatDiv.classList.toggle('selected');
+        });
+        columnDiv.appendChild(seatDiv);
+      }
+      rowDiv.appendChild(columnDiv);
+    }
+    busLayout.appendChild(rowDiv);
+  }
+</script>
+<style>
+  .row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+  .seat {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .seat.selected {
+    background-color: #6c6;
+  }
+</style>
 ```
