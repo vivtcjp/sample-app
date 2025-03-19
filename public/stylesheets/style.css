@@ -39,7 +39,7 @@ button[type='submit'] {
 }
 
 button[type='submit']:hover {
-  background-color: #cc0000; /* Changed to darker red */
+  background-color: #B22222; /* Changed to darker red */
 }
 
 /* Additional styles for improved layout */
@@ -105,7 +105,7 @@ select option {
   cursor: pointer;
 }
 .material-table button:hover {
-  background-color: #cc0000; /* Changed to darker red */
+  background-color: #B22222; /* Changed to darker red */
 }
 
 /* Styles for asterisk (*) next to mandatory fields */

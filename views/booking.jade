@@ -22,15 +22,16 @@ block content
       div(id='bus-layout')
     script.
       const busLayout = document.getElementById('bus-layout');
-      const rows = 4;
-      const seatsPerRow = 10;
+      const rows = 10;
+      const seatsPerRow = 4;
+      let seatNumber = 1;
       for (let i = 0; i < rows; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.className = 'row';
         for (let j = 0; j < seatsPerRow; j++) {
           const seatDiv = document.createElement('div');
           seatDiv.className = 'seat';
-          seatDiv.innerText = `Row ${i + 1} Seat ${j + 1}`;
+          seatDiv.innerText = seatNumber++;
           seatDiv.addEventListener('click', () => {
             seatDiv.classList.toggle('selected');
           });
@@ -77,5 +78,5 @@ block content
         cursor: pointer;
       }
       .seat.selected {
-        background-color: #6c6;
+        background-color: #FF0000;
       }
