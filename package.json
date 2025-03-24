@@ -1,29 +1,26 @@
 {
-  "name": "autonomous-bus-booking",
-  "version": "1.0.0",
-  "description": "Autonomous Bus Booking Application",
-  "main": "app.js",
+  "name": "sample-app",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.60",
-    "cookie-parser": "^1.4.7",
-    "date-fns": "^2.23.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.17.1",
-    "mongoose": "^5.12.3",
-    "morgan": "^1.10.0",
-    "node-fetch": "^2.6.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "axios": "^0.21.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^8.5.1",
-    "stripe": "^8.174.0",
-    "paypal-rest-sdk": "^1.8.1",
-    "twilio": "^3.67.0",
-    "nodemailer": "^6.6.3"
+    "mongoose": "^5.9.10",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "nodemailer": "^6.4.18",
+    "twilio": "^3.55.0",
+    "stripe": "^8.137.0",
+    "socket.io": "^3.0.3",
+    "express-validator": "^6.6.1"
   }
 }

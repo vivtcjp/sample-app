@@ -4,22 +4,11 @@
     ".env",
     ".gitignore",
     ".npmrc",
-    "Dockerfile",
-    "README.Docker.md",
-    "README.md",
     "app.js",
-    "bus-routes.json",
-    "docker-compose.yml",
     "package-lock.json",
     "package.json"
   ],
   "directories": {
-    ".idea": {
-      "files": [
-        "workspace.xml"
-      ],
-      "directories": {}
-    },
     "bin": {
       "files": [
         "www"
@@ -34,9 +23,7 @@
           "directories": {}
         },
         "javascripts": {
-          "files": [
-            "script.js"
-          ],
+          "files": [],
           "directories": {}
         },
         "stylesheets": {
@@ -54,16 +41,8 @@
       ],
       "directories": {}
     },
-    "test": {
-      "files": [
-        "cities.test.js"
-      ],
-      "directories": {}
-    },
     "views": {
       "files": [
-        "admin.jade",
-        "booking.jade",
         "error.jade",
         "index.jade",
         "layout.jade"

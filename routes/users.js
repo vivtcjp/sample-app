@@ -1,42 +1,38 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-var bcrypt = require('bcrypt');
-var mongoose = require('mongoose');
+var User = require('../models/User'); // Assuming you have a User model defined
 
-// User model
-var User = mongoose.model('User', new mongoose.Schema({
-  username: String,
-  password: String
-}));
-
-// Register route
-router.post('/register', async function(req, res, next) {
+// User registration
+router.post('/register', async (req, res) => {
   try {
-    var hashedPassword = await bcrypt.hash(req.body.password, 10);
-    var user = new User({ username: req.body.username, password: hashedPassword });
-    await user.save();
-    res.status(201).send('User registered');
-  } catch (err) {
-    res.status(500).send('Error registering user');
+    const { email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ email, password: hashedPassword });
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Login route
-router.post('/login', async function(req, res, next) {
+// User login
+router.post('/login', async (req, res) => {
   try {
-    var user = await User.findOne({ username: req.body.username });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).send('User not found');
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
-    var isPasswordValid = await bcrypt.compare(req.body.password, user.password);
-    if (!isPasswordValid) {
-      return res.status(400).send('Invalid password');
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
-    var token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.status(200).send({ token: token });
-  } catch (err) {
-    res.status(500).send('Error logging in');
+    const token = jwt.sign({ userId: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
