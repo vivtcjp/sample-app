@@ -77,4 +77,28 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  // Real-time bus tracking
+  const busTracking = document.getElementById('bus-tracking');
+  if (busTracking) {
+    async function fetchBusLocations() {
+      try {
+        const response = await fetch('/bus-locations');
+        if (response.ok) {
+          const busLocations = await response.json();
+          busTracking.innerHTML = '';
+          busLocations.forEach(bus => {
+            const busDiv = document.createElement('div');
+            busDiv.textContent = `Bus ${bus.id}: ${bus.location}`;
+            busTracking.appendChild(busDiv);
+          });
+        } else {
+          console.error('Failed to fetch bus locations');
+        }
+      } catch (error) {
+        console.error('Error fetching bus locations:', error);
+      }
+    }
+    setInterval(fetchBusLocations, 5000); // Fetch bus locations every 5 seconds
+  }
 });

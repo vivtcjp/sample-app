@@ -55,6 +55,11 @@ The response will be a JSON array containing information about buses running on 
 - React
 - React-dom
 - Axios
+- Jsonwebtoken
+- Stripe
+- Paypal-rest-sdk
+- Twilio
+- Nodemailer
 
 ## Sample JSON File for Bus Routes
 
@@ -272,4 +277,38 @@ The seat selection area has been updated to display seats horizontally, making i
     color: white;
   }
 </style>
+```
+
+## New Feature: Real-time Bus Tracking
+
+A new feature has been added to track buses in real-time. The bus locations are fetched every 5 seconds and displayed on the interface.
+
+### Example Real-time Bus Tracking
+
+```html
+<div id="bus-tracking"></div>
+<script>
+  const busTracking = document.getElementById('bus-tracking');
+  if (busTracking) {
+    async function fetchBusLocations() {
+      try {
+        const response = await fetch('/bus-locations');
+        if (response.ok) {
+          const busLocations = await response.json();
+          busTracking.innerHTML = '';
+          busLocations.forEach(bus => {
+            const busDiv = document.createElement('div');
+            busDiv.textContent = `Bus ${bus.id}: ${bus.location}`;
+            busTracking.appendChild(busDiv);
+          });
+        } else {
+          console.error('Failed to fetch bus locations');
+        }
+      } catch (error) {
+        console.error('Error fetching bus locations:', error);
+      }
+    }
+    setInterval(fetchBusLocations, 5000); // Fetch bus locations every 5 seconds
+  }
+</script>
 ```
