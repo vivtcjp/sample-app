@@ -56,8 +56,6 @@ The response will be a JSON array containing information about buses running on 
 - React-dom
 - Axios
 - Jsonwebtoken
-- Stripe
-- Paypal-rest-sdk
 - Twilio
 - Nodemailer
 
@@ -311,4 +309,3 @@ A new feature has been added to track buses in real-time. The bus locations are 
     setInterval(fetchBusLocations, 5000); // Fetch bus locations every 5 seconds
   }
 </script>
-```

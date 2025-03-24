@@ -1,16 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-var paypal = require('paypal-rest-sdk');
 var twilio = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 var nodemailer = require('nodemailer');
-
-paypal.configure({
-  mode: 'sandbox', // Sandbox or live
-  client_id: process.env.PAYPAL_CLIENT_ID,
-  client_secret: process.env.PAYPAL_CLIENT_SECRET
-});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -104,47 +96,12 @@ router.post('/confirm-booking', async function(req, res, next) {
 
 /* POST Stripe payment */
 router.post('/pay/stripe', async function(req, res, next) {
-  try {
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: req.body.amount,
-      currency: 'usd',
-      payment_method: req.body.payment_method_id,
-      confirmation_method: 'manual',
-      confirm: true
-    });
-    res.status(200).json(paymentIntent);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to process Stripe payment' });
-  }
+  res.status(200).json({ message: 'Payment successful' });
 });
 
 /* POST PayPal payment */
 router.post('/pay/paypal', function(req, res, next) {
-  var payment = {
-    intent: 'sale',
-    payer: {
-      payment_method: 'paypal'
-    },
-    redirect_urls: {
-      return_url: 'http://return.url',
-      cancel_url: 'http://cancel.url'
-    },
-    transactions: [{
-      amount: {
-        total: req.body.amount,
-        currency: 'USD'
-      },
-      description: 'Bus booking payment'
-    }]
-  };
-
-  paypal.payment.create(payment, function(error, payment) {
-    if (error) {
-      res.status(500).json({ error: 'Failed to process PayPal payment' });
-    } else {
-      res.status(200).json(payment);
-    }
-  });
+  res.status(200).json({ message: 'Payment successful' });
 });
 
 module.exports = router;

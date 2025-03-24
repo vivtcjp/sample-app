@@ -62,6 +62,7 @@
     },
     "views": {
       "files": [
+        "admin.jade",
         "booking.jade",
         "error.jade",
         "index.jade",
